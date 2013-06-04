@@ -20,8 +20,7 @@ import graphics.Shaders;
 public class Pgv extends Presenter {
 	public Pgv(String file) throws Exception {
 		model = new Model(file);
-		normals = TextureLoader.getTexture("tga", ResourceLoader.getResourceAsStream("../Models/hand/Normal.tga"));
-		scene = new Scene("../Ambients/CornellBox.tga");
+		scene = new Scene("../Ambients/Street.tga");
 		shaders = Shaders.link(
 			Shaders.compile("shader/SHVisibility.vert", GL_VERTEX_SHADER),
 			Shaders.compile("shader/SHVisibility.frag", GL_FRAGMENT_SHADER));
@@ -44,10 +43,14 @@ public class Pgv extends Presenter {
 		
 		glUseProgram(shaders);
 		glUniformMatrix4(light, false, floats);
-		glUniform1i(glGetAttribLocation(shaders, "normals"), 0);
-		glActiveTexture(GL_TEXTURE0);
 		
+		glUniform1i(glGetUniformLocation(shaders, "normals"), 0);
+		glActiveTexture(GL_TEXTURE0);
 		normals.bind();
+		
+		glUniform1i(glGetUniformLocation(shaders, "colors"), 1);
+		glActiveTexture(GL_TEXTURE1);
+		color.bind();
 	}
 	
 	public void draw() {
@@ -70,9 +73,11 @@ public class Pgv extends Presenter {
 		
 		glEnd();
 	}
-	
+
 	Model model;
 	Scene scene;
-	Texture normals;
+	Texture normals = TextureLoader.getTexture("tga", ResourceLoader.getResourceAsStream("../Models/hand/Normal.tga"));
+	Texture color = TextureLoader.getTexture("jpg", ResourceLoader.getResourceAsStream("../Models/hand/Color.jpg"));
+	
 	int shaders;
 }

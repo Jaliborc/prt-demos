@@ -1,4 +1,5 @@
 package viewer;
+import static org.lwjgl.opengl.GL13.*;
 import static java.lang.Float.parseFloat;
 import static org.lwjgl.util.glu.GLU.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -22,7 +23,7 @@ class Scene extends Sphere {
 		String radianceSource = new BufferedReader(new InputStreamReader(new FileInputStream(radiancePath))).readLine();
 		String[] values = radianceSource.split(" ");
 		
-		texture = TextureLoader.getTexture(extension, ResourceLoader.getResourceAsStream(path));
+		//texture = TextureLoader.getTexture(extension, ResourceLoader.getResourceAsStream(path));
 		radiance = new float[values.length];
 		
 		for (int i = 0; i < values.length; i++)
@@ -33,6 +34,7 @@ class Scene extends Sphere {
 	}
 	
 	public void draw(double exposure) {
+		glActiveTexture(GL_TEXTURE0);
 		texture.bind();
 		
 		glColor3d(exposure, exposure, exposure);
