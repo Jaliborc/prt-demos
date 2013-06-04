@@ -362,14 +362,13 @@ float matrixDot(mat4 a, mat4 b) {
 
 void main() {
     vec2 u2 = vec2(u.x, 1.0 - u.y);
-    vec3 norm = texture2D(normals, u2).rgb;
-    vec3 normi = normalize(norm * 2.0 - 1.0);
-    mat4 transfer = shProduct(shPolynomials(normi), v);
+    vec3 off = texture2D(normals, u2).rgb;
+    vec3 normal = normalize(n + (off * 2.0 - 1.0));
+    mat4 transfer = shProduct(shPolynomials(normal), v);
 
     float r = matrixDot(transfer, light[0]);
     float g = matrixDot(transfer, light[1]);
     float b = matrixDot(transfer, light[2]);
 
     gl_FragColor = vec4(r, g, b, 1);
-    //gl_FragColor = vec4(norm.rgb, 1);
 }
