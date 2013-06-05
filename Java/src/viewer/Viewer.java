@@ -1,5 +1,7 @@
 package viewer;
 import org.lwjgl.opengl.Drawable;
+
+import formats.pgt.PgtModel;
 import graphics.Presenter;
 import graphics.Window;
 
@@ -15,7 +17,7 @@ public class Viewer extends Window {
 	protected Presenter getPresenter(Drawable drawable, String file) {
 		try {
 			if (file.endsWith(".obj"))
-				return new Obj(file);
+				return new ObjPresenter(file);
 			if (file.endsWith(".pgv"))
 				return new Pgv(file);
 			

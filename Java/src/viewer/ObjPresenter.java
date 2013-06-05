@@ -5,8 +5,8 @@ import formats.obj.*;
 import graphics.Presenter;
 import math.Vector;
 
-class Obj extends Presenter {
-	public Obj(String file) throws Exception {
+class ObjPresenter extends Presenter {
+	public ObjPresenter(String file) throws Exception {
 		model = new Model(file);
 		alpha =  new DoubleParameter("Alpha", .6, 0, 1);
 		normalScale = new DoubleParameter("Normal Scale", .05, .001, 2);

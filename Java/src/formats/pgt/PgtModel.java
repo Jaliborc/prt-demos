@@ -18,6 +18,9 @@ public class PgtModel extends Model {
 		faces = new IntMatrix(stream).values;
 		transfer = new Svd(stream);
 		
+		for (int i = 0; i < vertices.length; i++)
+			vertices[i] = new Vertex();
+		
 		stream.close();
 	}
 	

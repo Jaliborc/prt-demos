@@ -25,9 +25,6 @@ public class PgstModel extends Model {
 			vertices[i] = new Vertex();
 		
 		stream.close();
-		
-		System.out.println(numBands());
-		System.out.println(numHarmonics());
 	}
 	
 	public void render(int pose, int harmonic, float[] radiance) {
