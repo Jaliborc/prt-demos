@@ -9,7 +9,7 @@ public class Viewer extends Window {
 		viewer.extensions = new String[] {"obj", "pgv", "pgt", "pgst"};
 		viewer.screenshotDirectory = "../Screenshots";
 		viewer.modelDirectory = "../Models";
-		viewer.Start("hand.pgv");
+		viewer.Start("horse.pgt");
 	}
 	
 	protected Presenter getPresenter(Drawable drawable, String file) {
@@ -19,7 +19,7 @@ public class Viewer extends Window {
 			if (file.endsWith(".pgv"))
 				return new Pgv(file);
 			
-			return new Pgt(drawable, file);
+			return new PgtPresenter(drawable, file);
 			
 		} catch (Exception e) {e.printStackTrace();}
 		return null;
