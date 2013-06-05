@@ -20,10 +20,10 @@ class AnimatedPresenter extends Presenter {
 		
 		new Timer().schedule(new TimerTask() {
 			public void run() {
-				pose.setValue(pose.getValue() + 1);
+				pose.setValue((pose.getValue() + 1) % numPoses);
 				render(pose.getValue());
 				
-		}}, new Date(), 300);
+		}}, new Date(), 33);
 		
 		add(new FileSelector("Scene", "../Ambients/", "tga", "png") {
 			protected void selected(String file) throws Exception {

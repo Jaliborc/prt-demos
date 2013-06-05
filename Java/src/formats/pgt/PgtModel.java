@@ -54,7 +54,7 @@ public class PgtModel extends Model {
 	}
 	
 	public int numBands() {
-		return (int) pow(numHarmonics(), .5);
+		return (int) pow(numHarmonics() / 3, .5);
 	}
 	
 	public int numHarmonics() {
