@@ -12,7 +12,7 @@ import graphics.Buffers;
 import graphics.Shaders;
 
 class PgvPresenter extends AnimatedPresenter {
-	public PgvPresenter(String file, Drawable drawable) throws Exception {
+	public PgvPresenter(Drawable drawable, String file) throws Exception {
 		model = new Model(file);
 		shaders = Shaders.link(
 				Shaders.compile("shader/Flat.vert", GL_VERTEX_SHADER),

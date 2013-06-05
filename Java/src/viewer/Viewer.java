@@ -1,4 +1,9 @@
 package viewer;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+import math.Matrix;
+
 import org.lwjgl.opengl.Drawable;
 
 import formats.pgt.PgtModel;
@@ -16,12 +21,16 @@ public class Viewer extends Window {
 	
 	protected Presenter getPresenter(Drawable drawable, String file) {
 		try {
+			if (file.endsWith(".pgt"))
+				return new PgtPresenter(drawable, file);
+			if (file.endsWith(".pgst"))
+				return new PgstPresenter(drawable, file);
+			
+			if (file.endsWith(".pgv"))
+				return new PgvPresenter(drawable, file);
+			
 			if (file.endsWith(".obj"))
 				return new ObjPresenter(file);
-			if (file.endsWith(".pgv"))
-				return new Pgv(file);
-			
-			return new PgtPresenter(drawable, file);
 			
 		} catch (Exception e) {e.printStackTrace();}
 		return null;
