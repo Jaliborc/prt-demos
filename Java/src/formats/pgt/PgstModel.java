@@ -7,6 +7,9 @@ import math.IntMatrix;
 import math.Svd;
 
 public class PgstModel extends Model {
+	public Svd geometry;
+	public Svd[] bands;
+	
 	public PgstModel(String file) throws Exception {
 		DataInputStream stream = new DataInputStream(new FileInputStream(file));
 		
@@ -65,7 +68,4 @@ public class PgstModel extends Model {
 	public int numHarmonics() {
 		return (bands.length * bands.length) * 3;
 	}
-
-	Svd geometry;
-	Svd[] bands;
 }

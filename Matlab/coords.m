@@ -18,7 +18,7 @@ function uv = coords(path)
     
     for i=1:size(index)
        uv(i*2 - 1) = vt(index(i) * 2 - 1);
-       uv(i*2) = vt(index(i) * 2);
+       uv(i*2) = 1 - vt(index(i) * 2); % y is flipped
     end
     
     closeFiles(files);

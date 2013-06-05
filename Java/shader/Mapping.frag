@@ -362,13 +362,11 @@ float matrixDot(mat4 a, mat4 b) {
 }
 
 void main() {
-    vec2 u2 = vec2(u.x, 1.0 - u.y);
-
-    vec3 off = texture2D(normals, u2).rgb;
+    vec3 off = texture2D(normals, u).rgb;
     vec3 normal = normalize(n + (off * 2.0 - 1.0));
     mat4 transfer = shProduct(shPolynomials(normal), v);
 
-    vec3 albedo = texture2D(colors, u2).rgb;
+    vec3 albedo = texture2D(colors, u).rgb;
     vec3 illumination = vec3(
         matrixDot(transfer, light[0]),
         matrixDot(transfer, light[1]),

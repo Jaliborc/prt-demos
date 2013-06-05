@@ -1,33 +1,24 @@
 package viewer;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL13.*;
 import static org.lwjgl.opengl.GL20.*;
-
-import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;
+import org.lwjgl.opengl.Drawable;
 
 import java.nio.FloatBuffer;
 
 import formats.pgv.Face;
-import formats.pgv.Vertex;
 import formats.pgv.Model;
-
+import formats.pgv.Vertex;
 import graphics.Buffers;
-import graphics.Presenter;
 import graphics.Shaders;
 
-public class Pgv extends Presenter {
-	public Pgv(String file) throws Exception {
+class PgvPresenter extends AnimatedPresenter {
+	public PgvPresenter(String file, Drawable drawable) throws Exception {
 		model = new Model(file);
-		scene = new Scene("../Ambients/CornellBox.tga");
 		shaders = Shaders.link(
-			Shaders.compile("shader/Mapping.vert", GL_VERTEX_SHADER),
-			Shaders.compile("shader/Mapping.frag", GL_FRAGMENT_SHADER));
+				Shaders.compile("shader/Flat.vert", GL_VERTEX_SHADER),
+				Shaders.compile("shader/Flat.frag", GL_FRAGMENT_SHADER));
 		
-		model.setPose(0);
-	    
-		int light = glGetUniformLocation(shaders, "light");
+		startup(drawable);
 	    FloatBuffer floats = Buffers.allocateFloats(48);
 	    
 		for (int i = 0; i < 48; i+=3)
@@ -42,27 +33,21 @@ public class Pgv extends Presenter {
 		floats.rewind();
 		
 		glUseProgram(shaders);
-		glUniformMatrix4(light, false, floats);
-		
-		glUniform1i(glGetUniformLocation(shaders, "normals"), 0);
-		glActiveTexture(GL_TEXTURE0);
-		normals.bind();
-		
-		glUniform1i(glGetUniformLocation(shaders, "colors"), 1);
-		glActiveTexture(GL_TEXTURE1);
-		color.bind();
+		glUniformMatrix4(glGetUniformLocation(shaders, "light"), false, floats);
+	}
+	
+	public void render(int pose) {
+		model.setPose(pose);
 	}
 	
 	public void draw() {
 		int normal = glGetAttribLocation(shaders, "normal");
-		int coords = glGetAttribLocation(shaders, "coords");
 		int visibility = glGetAttribLocation(shaders, "visibility");
 	
 		glBegin(GL_TRIANGLES);
 		
 		for (Face face : model.faces)
 			for (Vertex vertex : face) {
-				glVertexAttrib2f(coords, vertex.coords.x, vertex.coords.y);
 				glVertexAttrib3f(normal, vertex.normal.x, vertex.normal.y, vertex.normal.z);
 				glVertexAttrib4f(visibility, vertex.visibility.m00, vertex.visibility.m01, vertex.visibility.m02, vertex.visibility.m03);
 				glVertexAttrib4f(visibility+1, vertex.visibility.m10, vertex.visibility.m11, vertex.visibility.m12, vertex.visibility.m13);
@@ -73,11 +58,7 @@ public class Pgv extends Presenter {
 		
 		glEnd();
 	}
-
-	Model model;
-	Scene scene;
-	Texture normals = TextureLoader.getTexture("tga", ResourceLoader.getResourceAsStream("../Models/hand/Normal.tga"));
-	Texture color = TextureLoader.getTexture("jpg", ResourceLoader.getResourceAsStream("../Models/hand/Color.jpg"));
 	
+	Model model;
 	int shaders;
 }
