@@ -23,7 +23,7 @@ class Scene extends Sphere {
 		String radianceSource = new BufferedReader(new InputStreamReader(new FileInputStream(radiancePath))).readLine();
 		String[] values = radianceSource.split(" ");
 		
-		//texture = TextureLoader.getTexture(extension, ResourceLoader.getResourceAsStream(path));
+		texture = TextureLoader.getTexture(extension, ResourceLoader.getResourceAsStream(path));
 		radiance = new float[values.length];
 		
 		for (int i = 0; i < values.length; i++)

@@ -20,7 +20,7 @@ import graphics.Shaders;
 public class Pgv extends Presenter {
 	public Pgv(String file) throws Exception {
 		model = new Model(file);
-		scene = new Scene("../Ambients/Street.tga");
+		scene = new Scene("../Ambients/CornellBox.tga");
 		shaders = Shaders.link(
 			Shaders.compile("shader/SHVisibility.vert", GL_VERTEX_SHADER),
 			Shaders.compile("shader/SHVisibility.frag", GL_FRAGMENT_SHADER));
