@@ -9,7 +9,7 @@ function pgt(folder, numComponents)
     write(out, Faces, 'int32');
     
     [Poses] = transfer(fullfile(folder, '*.transfer'));
-    [M, V, U] = isvd(Poses, numComponents);
+    [M, V, U] = isvd(Poses ./ pi, numComponents);
     
     write(out, M); write(out, V); write(out, U);
     fclose(out);

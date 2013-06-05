@@ -9,7 +9,7 @@ function pgst(folder, numComponents)
     write(out, Faces, 'int32');
     
     [Poses, numHarmonics] = transfer(fullfile(folder, '*.transfer'));
-    Bands = splitTransfer(Poses, numHarmonics);
+    Bands = splitTransfer(Poses ./ pi, numHarmonics);
     fwrite(out, size(Bands, 2), 'int32');
     
     i = 0;
