@@ -1,16 +1,21 @@
 function pgt(folder, numComponents)
 %Creates a pgt file from a set of tranfer and obj files in a given folder.
-    out = fopen(strcat(folder, '.pgt'), 'w');
+    file = java.io.FileOutputStream(strcat(folder, '.pgt'));
+    out = java.io.ObjectOutputStream(file);
 
     [Poses, Faces] = geometry(fullfile(folder, '*.obj'));
     [M, V, U] = isvd(Poses, numComponents);
     
-    write(out, M); write(out, V); write(out, U);
-    write(out, Faces, 'int32');
+    out.writeObject(single(M));
+    out.writeObject(single(V));
+    out.writeObject(single(U));
+    out.writeObject(int32(Faces));
     
     [Poses] = transfer(fullfile(folder, '*.transfer'));
     [M, V, U] = isvd(Poses ./ pi, numComponents);
     
-    write(out, M); write(out, V); write(out, U);
-    fclose(out);
+    out.writeObject(single(M));
+    out.writeObject(single(V));
+    out.writeObject(single(U));
+    out.close();
 end

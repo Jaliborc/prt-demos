@@ -1,32 +1,33 @@
 package math;
-import java.io.InputStream;
+import java.io.ObjectInputStream;
 
 public class Svd {
 	public int rigor;
-	public Svd(InputStream input) throws Exception {
-		m = new FloatMatrix(input);
-		v = new FloatMatrix(input);
-		u = new FloatMatrix(input);
-		rigor = u.height;
+	public Svd(ObjectInputStream input) throws Exception {
+		m = (float[]) input.readObject();
+		v = (float[][]) input.readObject();
+		u = (float[][]) input.readObject();
+		rigor = u.length;
 	}
 	
 	public float[] get(int i) {
-		float[] vector = m.values.clone();
+		float[] vector = m.clone();
 		
-		for (int y = 0; y < v.height; y++)
+		for (int y = 0; y < v.length; y++)
 			for (int x = 0; x < rigor; x++)
-				vector[y] += v.get(x, y) * u.get(i, x);
+				vector[y] += v[y][x] * u[x][i];
 
 		return vector;
 	}
 	
 	public int height() {
-		return v.height;
+		return v.length;
 	}
 	
 	public int width() {
-		return u.width;
+		return u[0].length;
 	}
 	
-	FloatMatrix m, v, u;
+	float[] m;
+	float[][] v, u;
 }

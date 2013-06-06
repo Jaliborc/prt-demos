@@ -1,21 +1,20 @@
 package formats.pgt;
 import static java.lang.Math.pow;
 
-import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
-import math.IntMatrix;
 import math.Svd;
 
 public class PgtModel extends Model {
 	public Svd geometry, transfer;
 	
 	public PgtModel(String file) throws Exception {
-		DataInputStream stream = new DataInputStream(new FileInputStream(file));
+		ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
 		
 		geometry = new Svd(stream);
 		vertices = new Vertex[geometry.height() / 3];
-		faces = new IntMatrix(stream).values;
+		faces = (int[]) stream.readObject();
 		transfer = new Svd(stream);
 		
 		for (int i = 0; i < vertices.length; i++)

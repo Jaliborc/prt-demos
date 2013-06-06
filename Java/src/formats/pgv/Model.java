@@ -1,10 +1,8 @@
 package formats.pgv;
-import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-import math.FloatMatrix;
-import math.IntMatrix;
 import math.Vector;
 import math.Svd;
 
@@ -12,13 +10,13 @@ public class Model {
 	public ArrayList<Face> faces = new ArrayList<Face>();
 	
 	public Model(String file) throws Exception {
-		DataInputStream stream = new DataInputStream(new FileInputStream(file));
+		ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
 		
 		positions = new Svd(stream);
-		int[] f = new IntMatrix(stream).values;
 		visibility = new Svd(stream);
 		
-		float[] coords = new FloatMatrix(stream).values;
+		int[] f = (int[]) stream.readObject();
+		float[] coords = (float[]) stream.readObject();
 		for (int i = 0; i < positions.height() / 3; i++) {
 			vertices.add(new Vertex());
 			vertices.get(i).coords.x = coords[i * 2];

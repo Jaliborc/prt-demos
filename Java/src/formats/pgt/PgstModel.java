@@ -1,9 +1,7 @@
 package formats.pgt;
-import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
-import static math.Matrix.readInt;
-import math.IntMatrix;
 import math.Svd;
 
 public class PgstModel extends Model {
@@ -11,12 +9,12 @@ public class PgstModel extends Model {
 	public Svd[] bands;
 	
 	public PgstModel(String file) throws Exception {
-		DataInputStream stream = new DataInputStream(new FileInputStream(file));
+		ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
 		
 		geometry = new Svd(stream);
 		vertices = new Vertex[geometry.height() / 3];
-		faces = new IntMatrix(stream).values;
-		bands = new Svd[readInt(stream)];
+		faces = (int[]) stream.readObject();
+		bands = new Svd[(Integer) stream.readObject()];
 		
 		for (int i = 0; i < bands.length; i++)
 			bands[i] = new Svd(stream);

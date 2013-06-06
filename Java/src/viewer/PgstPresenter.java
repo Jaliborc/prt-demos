@@ -25,6 +25,10 @@ class PgstPresenter extends AnimatedPresenter {
 		add(harmonic.getSliderControls());
 		add(geometryRigor.getSliderControls());
 		add(numBands.getSliderControls());
+		
+		for (IntParameter parameter : transferRigor)
+			add(parameter.getSliderControls());
+		
 		add(exposure.getSliderControls(false));
 	}
 	

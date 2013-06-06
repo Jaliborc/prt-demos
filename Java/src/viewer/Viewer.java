@@ -1,12 +1,6 @@
 package viewer;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-
-import math.Matrix;
-
 import org.lwjgl.opengl.Drawable;
 
-import formats.pgt.PgtModel;
 import graphics.Presenter;
 import graphics.Window;
 
