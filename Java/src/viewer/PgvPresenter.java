@@ -14,6 +14,7 @@ import graphics.Shaders;
 class PgvPresenter extends AnimatedPresenter {
 	public PgvPresenter(Drawable drawable, String file) throws Exception {
 		model = new Model(file);
+		numPoses = model.numPoses();
 		shaders = Shaders.link(
 				Shaders.compile("shader/Flat.vert", GL_VERTEX_SHADER),
 				Shaders.compile("shader/Flat.frag", GL_FRAGMENT_SHADER));

@@ -15,14 +15,10 @@ public class Model {
 		positions = new Svd(stream);
 		visibility = new Svd(stream);
 		
-		int[] f = (int[]) stream.readObject();
-		float[] coords = (float[]) stream.readObject();
-		for (int i = 0; i < positions.height() / 3; i++) {
-			vertices.add(new Vertex());
-			vertices.get(i).coords.x = coords[i * 2];
-			vertices.get(i).coords.y = coords[i * 2 + 1];
-		}
+		for (int i = 0; i < positions.height() / 3; i++)
+			vertices.add(new Vertex(vertices.size()));
 		
+		int[] f = (int[]) stream.readObject();
 		for (int i = 0; i < f.length;) {
 			Face face = new Face();
 			face.add(vertices.get(f[i++]));
@@ -69,6 +65,10 @@ public class Model {
 				vertex.normal.add(n);
 		}
 		
+	}
+	
+	public int numPoses() {
+		return positions.width();
 	}
 	
 	Svd positions, visibility;

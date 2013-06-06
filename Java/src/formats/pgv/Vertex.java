@@ -5,8 +5,12 @@ import org.lwjgl.util.vector.Vector2f;
 import math.Vector;
 
 public class Vertex {
+	public Vertex(int index) {
+		this.index = index;
+	}
+	
 	public Vector position = new Vector();
 	public Vector normal = new Vector();
-	public Vector2f coords = new Vector2f();
 	public Matrix4f visibility = new Matrix4f();
+	public int index;
 }
