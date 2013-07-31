@@ -1,5 +1,5 @@
 function pgst(folder, numComponents)
-%Creates a pgt file from a set of tranfer and obj files in a given folder.
+%Creates a "Precomputed Geometry and band-Split Transfer" file from a set of .obj and .tranfer files in a given folder.
     file = java.io.FileOutputStream(strcat(folder, '.pgst'));
     out = java.io.ObjectOutputStream(file);
 
