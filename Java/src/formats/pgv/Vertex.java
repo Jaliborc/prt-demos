@@ -9,8 +9,8 @@ public class Vertex {
 		this.index = index;
 	}
 	
+	public Matrix4f visibility = new Matrix4f();
 	public Vector position = new Vector();
 	public Vector normal = new Vector();
-	public Matrix4f visibility = new Matrix4f();
 	public int index;
 }

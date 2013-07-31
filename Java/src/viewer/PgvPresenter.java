@@ -6,14 +6,14 @@ import org.lwjgl.opengl.Drawable;
 import java.nio.FloatBuffer;
 
 import formats.pgv.Face;
-import formats.pgv.Model;
-import formats.pgv.Vertex;
+import formats.pgv.PlainModel;
+import formats.pgv.Edge;
 import graphics.Buffers;
 import graphics.Shaders;
 
 class PgvPresenter extends AnimatedPresenter {
 	public PgvPresenter(Drawable drawable, String file) throws Exception {
-		model = new Model(file);
+		model = new PlainModel(file);
 		numPoses = model.numPoses();
 		shaders = Shaders.link(
 				Shaders.compile("shader/Flat.vert", GL_VERTEX_SHADER),
@@ -44,22 +44,25 @@ class PgvPresenter extends AnimatedPresenter {
 	public void draw() {
 		int normal = glGetAttribLocation(shaders, "normal");
 		int visibility = glGetAttribLocation(shaders, "visibility");
+		super.draw();
 	
+		glUseProgram(shaders);
 		glBegin(GL_TRIANGLES);
 		
 		for (Face face : model.faces)
-			for (Vertex vertex : face) {
-				glVertexAttrib3f(normal, vertex.normal.x, vertex.normal.y, vertex.normal.z);
-				glVertexAttrib4f(visibility, vertex.visibility.m00, vertex.visibility.m01, vertex.visibility.m02, vertex.visibility.m03);
-				glVertexAttrib4f(visibility+1, vertex.visibility.m10, vertex.visibility.m11, vertex.visibility.m12, vertex.visibility.m13);
-				glVertexAttrib4f(visibility+2, vertex.visibility.m20, vertex.visibility.m21, vertex.visibility.m22, vertex.visibility.m23);
-				glVertexAttrib4f(visibility+3, vertex.visibility.m30, vertex.visibility.m31, vertex.visibility.m32, vertex.visibility.m33);
-				glVertex3f(vertex.position.x, vertex.position.y, vertex.position.z);
+			for (Edge edge : face) {
+				glVertexAttrib3f(normal, edge.vertex.normal.x, edge.vertex.normal.y, edge.vertex.normal.z);
+				glVertexAttrib4f(visibility, edge.vertex.visibility.m00, edge.vertex.visibility.m01, edge.vertex.visibility.m02, edge.vertex.visibility.m03);
+				glVertexAttrib4f(visibility+1, edge.vertex.visibility.m10, edge.vertex.visibility.m11, edge.vertex.visibility.m12, edge.vertex.visibility.m13);
+				glVertexAttrib4f(visibility+2, edge.vertex.visibility.m20, edge.vertex.visibility.m21, edge.vertex.visibility.m22, edge.vertex.visibility.m23);
+				glVertexAttrib4f(visibility+3, edge.vertex.visibility.m30, edge.vertex.visibility.m31, edge.vertex.visibility.m32, edge.vertex.visibility.m33);
+				glVertex3f(edge.vertex.position.x, edge.vertex.position.y, edge.vertex.position.z);
 			}
 		
 		glEnd();
+		glUseProgram(0);
 	}
 	
-	Model model;
+	PlainModel model;
 	int shaders;
 }

@@ -5,12 +5,12 @@ import mintools.parameters.IntParameter;
 
 import org.lwjgl.opengl.Drawable;
 
-import formats.pgt.PgstModel;
+import formats.pgt.SplitModel;
 import formats.pgt.Vertex;
 
 class PgstPresenter extends AnimatedPresenter {
 	public PgstPresenter(Drawable drawable, String file) throws Exception {
-		model = new PgstModel(file);
+		model = new SplitModel(file);
 		harmonic = new IntParameter("Harmonic", 0, 0, model.numHarmonics() / 3);
 		numBands = new IntParameter("Num Bands", model.numBands(), 1, model.numBands());
 		geometryRigor = new IntParameter("Geometry Components", 1, 0, model.geometry.rigor);
@@ -57,5 +57,5 @@ class PgstPresenter extends AnimatedPresenter {
 	IntParameter[] transferRigor;
 	IntParameter harmonic, geometryRigor, numBands;
 	DoubleParameter exposure;
-	PgstModel model;
+	SplitModel model;
 }

@@ -6,12 +6,12 @@ import mintools.parameters.DoubleParameter;
 import mintools.parameters.IntParameter;
 
 import formats.pgt.Model;
-import formats.pgt.PgtModel;
+import formats.pgt.JointModel;
 import formats.pgt.Vertex;
 
 class PgtPresenter extends AnimatedPresenter {
 	public PgtPresenter(Drawable drawable, String file) throws Exception {
-		model = new PgtModel(file);
+		model = new JointModel(file);
 		harmonic = new IntParameter("Harmonic", 0, 0, model.numHarmonics() / 3);
 		geometryRigor = new IntParameter("Geometry Components", 1, 0, model.geometry.rigor);
 		transferRigor = new IntParameter("Transfer Components", 1, 0, model.transfer.rigor);
@@ -49,5 +49,5 @@ class PgtPresenter extends AnimatedPresenter {
 	
 	IntParameter harmonic, geometryRigor, transferRigor, numBands;
 	DoubleParameter exposure;
-	PgtModel model;
+	JointModel model;
 }
