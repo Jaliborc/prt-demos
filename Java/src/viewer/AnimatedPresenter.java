@@ -20,7 +20,9 @@ class AnimatedPresenter extends Presenter {
 		
 		new Timer().schedule(new TimerTask() {
 			public void run() {
-				pose.setValue((pose.getValue() + 1) % numPoses);
+				if (loop.getValue())
+					pose.setValue((pose.getValue() + 1) % numPoses);
+				
 				render(pose.getValue());
 				
 		}}, new Date(), 33);

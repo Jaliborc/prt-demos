@@ -20,7 +20,9 @@ import static org.lwjgl.util.glu.GLU.*;
 import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.BufferUtils;
+import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.Drawable;
 import org.lwjgl.opengl.SharedDrawable;
 import org.lwjgl.input.Keyboard;
@@ -85,10 +87,6 @@ public abstract class Window extends JFrame {
         glShadeModel(GL_SMOOTH);
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
-        
-    	glMatrixMode(GL_PROJECTION);
-      	glLoadIdentity();
-      	gluPerspective(45, (float) canvas.getWidth()/canvas.getHeight(), 0.1f, 100);
       	  
       	glMatrixMode(GL_MODELVIEW);
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
@@ -138,13 +136,22 @@ public abstract class Window extends JFrame {
 	}
 	
 	void draw() throws Exception {
+		if (resize)
+			Display.setDisplayMode(new DisplayMode(canvas.getWidth(), canvas.getHeight()));
+		
+    	glMatrixMode(GL_PROJECTION);
+      	glLoadIdentity();
+      	gluPerspective(45, (float) canvas.getWidth()/canvas.getHeight(), 0.1f, 100);
+		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		gluLookAt(
 			(float) (cos(x) * sin(y) * z), (float) cos(y ) * z, (float) (sin(x) * sin(y) * z),
 			0, 0, 0,
 			0, 1, 0);
 		
+		resize = false;
 		presenter.draw();
 		Display.update();
 	}
@@ -152,6 +159,7 @@ public abstract class Window extends JFrame {
 	void resize() {
 		controls.getPanel().setSize(550, getHeight());
 		canvas.setSize(getWidth() - controls.getPanel().getWidth(), getHeight());
+		resize = true;
 	}
 	
 	boolean isRunning() {
@@ -165,6 +173,7 @@ public abstract class Window extends JFrame {
 	
 	float z = 2;
 	float x, y = 1;
+	boolean resize;
 	
 	String file;
 	Presenter presenter;

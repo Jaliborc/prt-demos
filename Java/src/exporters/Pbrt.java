@@ -6,7 +6,7 @@ import formats.obj.*;
 
 public class Pbrt {
 	public static void main(String[] args) throws Exception {
-		Export("../Models/horse", "transfer", 3);
+		Export("../Models/octopus/sparse", "transfer", 3);
 	}
 	
 	public static void Export(String path, String mode, int harmonicLevel) throws Exception {
