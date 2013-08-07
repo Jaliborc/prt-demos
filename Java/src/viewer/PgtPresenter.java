@@ -16,7 +16,7 @@ class PgtPresenter extends AnimatedPresenter {
 		geometryRigor = new IntParameter("Geometry Components", 1, 0, model.geometry.rigor);
 		transferRigor = new IntParameter("Transfer Components", 1, 0, model.transfer.rigor);
 		numBands = new IntParameter("Num Bands", model.numBands(), 1, model.numBands());
-		exposure = new DoubleParameter("Exposure", 1, 0.01, 5);
+		exposure = new DoubleParameter("Exposure", 1, 0.01, 50);
 		numPoses = model.numPoses();
 		
 		startup(drawable);

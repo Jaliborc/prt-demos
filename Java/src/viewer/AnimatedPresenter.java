@@ -13,7 +13,7 @@ import graphics.Presenter;
 
 class AnimatedPresenter extends Presenter {
 	public void startup(final Drawable drawable) throws Exception {
-		scene = new Scene("../Ambients/CornellBox.tga");
+		scene = new Scene("../Ambients/Square.tga");
 		loop = new BooleanParameter("Loop", false);
 		drawScene = new BooleanParameter("Draw Scene", true);
 		pose =  new IntParameter("Pose", 0, 0, numPoses - 1);
@@ -30,6 +30,7 @@ class AnimatedPresenter extends Presenter {
 		add(new FileSelector("Scene", "../Ambients/", "tga", "png") {
 			protected void selected(String file) throws Exception {
 				drawable.makeCurrent();
+				scene.finalize();
 				scene = new Scene(file);
 		}});
 		
@@ -41,7 +42,7 @@ class AnimatedPresenter extends Presenter {
 	public void render(int pose) {}
 	public void draw() {
 		if (drawScene.getValue())
-			scene.draw(1);
+			scene.draw();
 	}
 	
 	Scene scene;

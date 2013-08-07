@@ -421,14 +421,14 @@ void SHComputeDiffuseTransfer(const Point &p, const Normal &n,
 }
 
 void SHComputeVisibility(const Point &point, float epsilon,
-        const Scene *scene, RNG &random, int numSamples,
+        const Scene *scene, RNG &randomizer, int numSamples,
         int numBands, Spectrum *visibility) {
   
   int size = SHTerms(numBands);
   for (int i = 0; i < size; ++i)
     visibility[i] = 0.f;
   
-  uint32_t coords[2] = {random.RandomUInt(), random.RandomUInt()};
+  uint32_t coords[2] = {randomizer.RandomUInt(), randomizer.RandomUInt()};
   float *Y = ALLOCA(float, size);
   float sample[2];
   

@@ -8,9 +8,9 @@ public class Viewer extends Window {
 	public static void main(String[] args) throws Exception {
 		Viewer viewer = new Viewer();
 		viewer.extensions = new String[] {"obj", "pgv", "pgt", "pgst"};
-		viewer.screenshotDirectory = "../Screenshots";
+		viewer.screenshotDirectory = "../Models";
 		viewer.modelDirectory = "../Models";
-		viewer.Start("horse/horse-gallop-01.obj");
+		viewer.Start("octahedron.pgt");
 	}
 	
 	protected Presenter getPresenter(Drawable drawable, String file) {
