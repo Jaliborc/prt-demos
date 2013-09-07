@@ -20,3 +20,6 @@ Pbrt/scenes/
 Java/bin/
 archive/
 Tasks
+Osg/Main.o
+
+Osg/GUITest.o

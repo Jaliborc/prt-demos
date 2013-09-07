@@ -1,0 +1,24 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.sublime-project",
+				"*.sublime-workspace",
+				".*",
+				"*.log"
+			],
+			"path": "/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg"
+		},
+		{
+			"path": "/Users/Jaliborc/Downloads/separable-sss-master"
+		},
+		{
+			"path": "/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1"
+		},
+		{
+			"path": "/Users/Jaliborc/Downloads/NPS_Tutorials_src"
+		}
+	]
+}
