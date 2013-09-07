@@ -41,7 +41,7 @@ class PgvPresenter extends AnimatedPresenter {
 		model.setPose(pose);
 	}
 	
-	public void draw() {
+	public void draw() throws Exception {
 		int normal = glGetAttribLocation(shaders, "normal");
 		int visibility = glGetAttribLocation(shaders, "visibility");
 		super.draw();

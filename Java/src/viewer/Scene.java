@@ -18,8 +18,6 @@ import java.io.BufferedReader;
 
 class Scene extends Sphere {
 	public float radiance[];
-	public float directionalPower;
-	public Vector directional;
 
 	public Scene(String path) throws Exception {
 		String extension = path.substring(path.lastIndexOf('.') + 1);
@@ -32,16 +30,6 @@ class Scene extends Sphere {
 		
 		for (int i = 0; i < values.length; i++)
 			radiance[i] = parseFloat(values[i]);
-
-		directional = new Vector(-radiance[3], -radiance[1], radiance[2]);
-		directional.normalise();
-		directionalPower = 867f / 316 * (float) Math.PI *
-				(directional.x * radiance[3] + directional.y * radiance[1] + directional.z * radiance[2]);
-		
-		if (directionalPower < 0) {
-			directionalPower *= -1;
-			directional.scale(-1);
-		}
 		
 		setOrientation(GLU_INSIDE);
 		setTextureFlag(true);
@@ -59,7 +47,7 @@ class Scene extends Sphere {
 		glPushMatrix();
 		glRotatef(90f, 0,1,0);
 		glRotatef(270f, 1,0,0);
-		draw(50, 50, 50);
+		draw(100, 100, 100);
 		glPopMatrix();
 		glClear(GL_DEPTH_BUFFER_BIT);
 	}

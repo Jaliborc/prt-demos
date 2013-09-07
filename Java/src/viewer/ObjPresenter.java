@@ -13,6 +13,9 @@ class ObjPresenter extends Presenter {
 		
 		add(alpha.getSliderControls(false));
 		add(normalScale.getSliderControls(false));
+		
+		System.out.println(model.vertices.get(61).normal);
+		System.out.println(model.vertices.get(62).normal);
 	}
 	
 	public void draw() {

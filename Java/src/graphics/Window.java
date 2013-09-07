@@ -141,7 +141,7 @@ public abstract class Window extends JFrame {
 		
     	glMatrixMode(GL_PROJECTION);
       	glLoadIdentity();
-      	gluPerspective(45, (float) canvas.getWidth()/canvas.getHeight(), 0.1f, 100);
+      	gluPerspective(45, (float) canvas.getWidth()/canvas.getHeight(), 0.1f, 200);
 		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glMatrixMode(GL_MODELVIEW);

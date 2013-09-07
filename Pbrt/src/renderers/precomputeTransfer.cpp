@@ -34,8 +34,12 @@ public:
       
       if (parent->mode == Visibility)
           SHComputeVisibility(point, 5e-2f, parent->scene, parent->rng, 512, parent->harmonicLevel, harmonics);
-      else
-          SHComputeDiffuseTransfer(point, normal, 5e-2f, parent->scene, parent->rng, 512, parent->harmonicLevel, harmonics);
+      else {
+        SHComputeDiffuseTransfer(point, normal, 5e-2f, parent->scene, parent->rng, 512, parent->harmonicLevel, harmonics);
+        
+        for (int j = 0; j < parent->numHarmonics; j++)
+          harmonics[j] /= M_PI;
+      }
     }
   }
   

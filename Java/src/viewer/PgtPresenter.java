@@ -33,7 +33,7 @@ class PgtPresenter extends AnimatedPresenter {
 		model.render(pose, harmonic.getValue(), scene.radiance);
 	}
 	
-	public void draw() {
+	public void draw() throws Exception {
 		super.draw();
 		glBegin(GL_TRIANGLES);
 		

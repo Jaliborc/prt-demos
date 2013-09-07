@@ -4,18 +4,18 @@ function [poses, faces, coords] = geometry(path)
     poses = [];
     
     for i = 1:size(files)
-        pose = scanFile(files(i), 'v %f %f %f');
+        pose = scanFile(files(i), 'v %f %f %f', 0);
         poses = [poses pose];
     end
     
     if nargout > 2
         frewind(files(1));
-        faces = scanFile(files(1), 'f %d/%d %d/%d %d/%d') - 1;
+        faces = scanFile(files(1), 'f %d/%d %d/%d %d/%d', 0) - 1;
         frewind(files(1));
         coords = scanFile(files(i), 'vt %f %f');
     else
         frewind(files(1));
-        faces = scanFile(files(1), 'f %d%*s %d%*s %d%*s') - 1;
+        faces = scanFile(files(1), 'f %d%*s %d%*s %d%*s', 0) - 1;
     end
     
     closeFiles(files);

@@ -13,7 +13,7 @@ function pgt(folder, numComponents)
     out.flush();
     
     [Poses] = transfer(fullfile(folder, '*.transfer'));
-    [M, V, U] = isvd(Poses ./ pi, numComponents);
+    [M, V, U] = isvd(Poses, numComponents);
     
     out.writeObject(single(M));
     out.writeObject(single(V));
