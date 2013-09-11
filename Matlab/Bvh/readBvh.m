@@ -5,7 +5,7 @@ function [motion, header] = readBvh(path)
     
     for i = 1:size(files)
         frame = scanFile(files(i), '%f', 1);
-        motion = [motion frame(4:end,:)];
+        motion = [motion frame];
     end
     
     motion(motion == -180) = 180;

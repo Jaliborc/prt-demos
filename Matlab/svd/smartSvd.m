@@ -4,7 +4,7 @@ function results = smartSvd(input)
     results.O = input;
     results.M = mean(input, 2);
     
-        [results.U, results.S, results.V] = svd(bsxfun(@minus, results.O, results.M), 'econ');
-    results.U = results.U * results.S;
+    [results.U, results.S, results.V] = svd(bsxfun(@minus, results.O, results.M), 'econ');
+    results.V = results.V * results.S;
 end
 
