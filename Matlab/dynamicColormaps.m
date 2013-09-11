@@ -32,7 +32,7 @@ function dynamicColormaps(destination, source, images, bvh, numPoses)
            end
        end
         
-        imwrite(image, fullfile(destination, strcat(num2str(i), '.png')));
+        imwrite(image, fullfile(destination, strcat(num2str(i, '%05.f'), '.png')));
     end
 end
 
