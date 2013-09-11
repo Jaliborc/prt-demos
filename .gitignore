@@ -11,15 +11,18 @@
 *.pbrt
 *.visibility
 *.transfer
+*.jpg
 
 *.pgt
 *.pgst
 *.pgv
+*.o
+
+*.bvh
+*.pdt
 
 Pbrt/scenes/
 Java/bin/
 archive/
 Tasks
-Osg/Main.o
-
-Osg/GUITest.o
+Osg/Media

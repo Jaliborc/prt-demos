@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"size",
+				"sizeof"
+			],
+			[
+				"r",
+				"reducedJoints"
+			],
+			[
+				"cl",
+				"cluster"
+			],
+			[
+				"clust",
+				"clusters"
+			],
+			[
+				"ne",
+				"neighbor"
+			],
+			[
+				"dist",
+				"distance"
+			],
+			[
+				"str",
+				"stream"
+			],
+			[
+				"Matr",
+				"Matrix"
+			],
+			[
+				"if",
+				"ifstream"
+			],
+			[
 				"new",
 				"newLabel"
 			],
@@ -164,11 +200,27 @@
 	"buffers":
 	[
 		{
-			"file": "SConstruct",
+			"file": "PdtTest.cpp",
 			"settings":
 			{
-				"buffer_size": 224,
+				"buffer_size": 1316,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Pdt.h",
+			"settings":
+			{
+				"buffer_size": 1803,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Main.cpp",
+			"settings":
+			{
+				"buffer_size": 4676,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -248,11 +300,19 @@
 	},
 	"file_history":
 	[
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/OldPdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Matrix.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ReadStream.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/readStream.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/CustomMatrix.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtTest.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/GraspTools/include/Data.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/GraspTools/src/ShapeHandFrame.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/SConscript",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/VisualHandModel/VisualHandModel.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/DepencenciesTest.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/GraspTools/src/ContactVisualizer.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/sconscript",
@@ -270,7 +330,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ShadowTesting.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Environment.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/final.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.h",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/ShadowMap.cpp",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osg/AnimationPath.cpp",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osg/AnimationPath",
@@ -368,14 +427,7 @@
 		"/Users/Jaliborc/Documents/Research/VisualHandModel/Scene.h",
 		"/Users/Jaliborc/Documents/Research/VisualHandModel/ModelViewer.sublime-project",
 		"/Users/Jaliborc/Downloads/NPS_Tutorials_src/Tutorial_02/GeometryTest.cpp",
-		"/Users/Jaliborc/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/Jaliborc/Desktop/fine fine.obj",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/VisualHandModel.cpp",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/SConstruct",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Models/hand/hand.xml",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/test.cpp",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Shaders/flat.frag",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Shaders/flat.vert"
+		"/Users/Jaliborc/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings"
 	],
 	"find":
 	{
@@ -386,6 +438,8 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"",
+			"*.cpp",
 			"",
 			"NPS_Tutorials_src/*",
 			"NPS_Tutorials*",
@@ -451,6 +505,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"samples",
+			"arma::",
+			"total",
 			"Vx/",
 			"ContactVisualizer",
 			"unordered_map",
@@ -575,10 +632,7 @@
 			"fragmentShaderSource_debugHUD",
 			"init",
 			"createShaders",
-			"_shadowTextureUnit",
-			"osgShadow_shadowTexture",
-			"stateset",
-			"camera"
+			"_shadowTextureUnit"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -617,31 +671,87 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "SConstruct",
+					"file": "PdtTest.cpp",
 					"settings":
 					{
-						"buffer_size": 224,
+						"buffer_size": 1316,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								224,
-								224
+								1302,
+								1302
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Pdt.h",
+					"settings":
+					{
+						"buffer_size": 1803,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55,
+								55
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Main.cpp",
+					"settings":
+					{
+						"buffer_size": 4676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1146.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -694,6 +804,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"matrx",
+				"Osg/Matrix.h"
+			],
 			[
 				"data.h",
 				"Osg/Dependencies/GraspTools/include/Data.h"
@@ -1201,10 +1315,6 @@
 			[
 				"switcher",
 				"Switcher/Switcher.lua"
-			],
-			[
-				"t",
-				"Journal/Tamer.lua"
 			]
 		],
 		"width": 0.0

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.4.4">
+	<integrator type="vertextransfer">
+		<string name="mapsRoot" value="/Users/Jaliborc/Applications/Mitsuba/scripts/shmaps"/>
+		<integer name="numBands" value="3"/>
+		<integer name="numSamples" value="512"/>
+		<float name="sharpness" value="10.0"/>
+
+		<integrator type="irrcache">
+			<integrator type="path"/>
+		</integrator>
+	</integrator>
+
+	<sensor type="perspective">
+		<transform name="toWorld">
+  			<matrix value="-0.997736 0.0485535 0.0465408 -3.5884 0.0304901 0.943322 -0.330475 12.3795 -0.0599487 -0.328308 -0.942666 54.627 0 0 0 1"/>
+		</transform>
+
+		<sampler type="independent">
+			<integer name="sampleCount" value="256"/>
+		</sampler>
+
+		<film type="ldrfilm" id="film">
+			<string name="fileFormat" value="jpg"/>
+			<string name="pixelFormat" value="rgb"/>
+			<boolean name="banner" value="false"/>
+			<integer name="width" value="512"/>
+			<integer name="height" value="512"/>
+
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+
+	<emitter type="envmap">
+		<string name="filename" value="/Users/Jaliborc/Applications/Mitsuba/scripts/shmaps/0 1.exr"/>
+	</emitter>
+
+	<shape type="obj">
+		<string name="filename" value="$model"/>
+
+		<subsurface type="dipole">
+			<string name="material" value="skin1"/>
+			<float name="scale" value="0.05"/>
+		</subsurface>
+
+		<bsdf type="bump">
+			<bsdf type="diffuse">
+				<texture type="bitmap" name="reflectance">
+					<string name="filename" value="color.png"/>
+				</texture>
+			</bsdf>
+
+			<texture type="bitmap">
+				<string name="filename" value="bump.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+</scene>
