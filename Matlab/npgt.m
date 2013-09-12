@@ -19,6 +19,6 @@ function npgt(folder, numComponents)
     fwrite(file, U, 'float32');
     
     fwrite(file, size(Faces, 1), 'int32');
-    fwrite(file, Faces, 'int32');
+    fwrite(file, Faces - 1, 'int32');
     fclose(file);
 end

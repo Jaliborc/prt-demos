@@ -17,6 +17,6 @@ function pgv(folder, numComponents)
     out.writeObject(single(V));
     out.writeObject(single(U));
 
-    out.writeObject(int32(Faces));
+    out.writeObject(int32(Faces - 1));
     out.close();
 end

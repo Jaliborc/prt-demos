@@ -200,27 +200,11 @@
 	"buffers":
 	[
 		{
-			"file": "PdtTest.cpp",
+			"file": "/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgAnimation/RigGeometry",
 			"settings":
 			{
-				"buffer_size": 1316,
+				"buffer_size": 4963,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Pdt.h",
-			"settings":
-			{
-				"buffer_size": 1803,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Main.cpp",
-			"settings":
-			{
-				"buffer_size": 4676,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -300,6 +284,13 @@
 	},
 	"file_history":
 	[
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Environment.h",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgPlugins/fbx/fbxRMesh.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgAnimation/RigGeometry.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Main.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgPlugins/fbx/ReaderWriterFBX.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtTest.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/OldPdt.h",
@@ -307,8 +298,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ReadStream.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/readStream.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/CustomMatrix.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtTest.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/GraspTools/include/Data.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/GraspTools/src/ShapeHandFrame.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/SConscript",
@@ -319,7 +308,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/GUITest.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/GUIExample.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/VisualHandModel/VisualHandModel.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Main.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Slider.h",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/NEWS.txt",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
@@ -328,7 +316,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/FullscreenQuad.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ShadowTesting.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Environment.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/final.frag",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/ShadowMap.cpp",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osg/AnimationPath.cpp",
@@ -424,10 +411,7 @@
 		"/Users/Jaliborc/Documents/Research/VisualHandModel/Sh.h",
 		"/Users/Jaliborc/Documents/Research/VisualHandModel/Experiments.cpp",
 		"/Users/Jaliborc/Documents/Research/VisualHandModel/EnvironmentLight.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Scene.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/ModelViewer.sublime-project",
-		"/Users/Jaliborc/Downloads/NPS_Tutorials_src/Tutorial_02/GeometryTest.cpp",
-		"/Users/Jaliborc/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings"
+		"/Users/Jaliborc/Documents/Research/VisualHandModel/Scene.h"
 	],
 	"find":
 	{
@@ -435,9 +419,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"osgPlugins/fbx/*",
 			"",
 			"*.cpp",
 			"",
@@ -505,6 +490,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"riggeome",
+			"rigge",
+			"_geome",
+			"source",
+			"mater",
+			"copyFrom",
+			"UpdateVertex",
+			"drw",
+			"_geometry",
+			"setSourceGeometry",
+			"_vertexInfluenceMap",
+			"buffer",
+			"fbx",
+			"drawIm",
 			"samples",
 			"arma::",
 			"total",
@@ -618,21 +617,7 @@
 			"_mainFragmentShader",
 			"DynamicShadow",
 			"NumEnabledLights",
-			"DirectionalLight",
-			"SpotLight",
-			"setShadowVertexShader",
-			"texture3D",
-			"_jitterTextureUnit",
-			"osgShadow_jitterTexture",
-			"_shaderList",
-			"createShaders",
-			"_camera",
-			"_camera->add",
-			"camera",
-			"fragmentShaderSource_debugHUD",
-			"init",
-			"createShaders",
-			"_shadowTextureUnit"
+			"DirectionalLight"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -671,77 +656,23 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "PdtTest.cpp",
+					"file": "/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgAnimation/RigGeometry",
 					"settings":
 					{
-						"buffer_size": 1316,
+						"buffer_size": 4963,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1302,
-								1302
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Pdt.h",
-					"settings":
-					{
-						"buffer_size": 1803,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								55,
-								55
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Main.cpp",
-					"settings":
-					{
-						"buffer_size": 4676,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								2770,
+								2776
 							]
 						],
 						"settings":
@@ -751,7 +682,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1146.0,
+						"translation.y": 1314.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -804,6 +735,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"readwriterf",
+				"OpenSceneGraph-3.0.1/src/osgPlugins/fbx/ReaderWriterFBX.cpp"
+			],
+			[
+				"rigge",
+				"OpenSceneGraph-3.0.1/include/osgAnimation/RigGeometry"
+			],
+			[
+				"ogt",
+				"Osg/Pgt.h"
+			],
 			[
 				"matrx",
 				"Osg/Matrix.h"
@@ -1303,18 +1246,6 @@
 			[
 				"battleui",
 				"Source/AddOns/Blizzard_PetBattleUI/Blizzard_PetBattleUI.lua"
-			],
-			[
-				"s",
-				"Switcher/Switcher.lua"
-			],
-			[
-				"abilitybu",
-				"PetTracker/Combat/AbilityButton.lua"
-			],
-			[
-				"switcher",
-				"Switcher/Switcher.lua"
 			]
 		],
 		"width": 0.0

@@ -18,6 +18,6 @@ function ptgv(folder, numComponents)
     out.writeObject(single(U));
 
     out.writeObject(int32(Coords));
-    out.writeObject(int32(Faces));
+    out.writeObject(int32(Faces - 1));
     out.close();
 end

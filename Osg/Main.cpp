@@ -37,7 +37,7 @@ Texture2D* NewBuffer(GLint format = GL_RGBA, Texture::FilterMode filter = Textur
 int main(int argc, char** argv) {
     // Scene
     ShadowedScene* scene = new ShadowedScene(new SoftShadowMap);
-    Environment* light = new Environment("Media/museum.tga", scene);
+    Environment* light = new Environment("../Ambients/Museum.tga", scene);
     //Node* hand = readNodeFile("Media/hand.obj");
     Pgt* hand = new Pgt("Media/fingerBend.npgt");
 
