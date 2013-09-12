@@ -18,27 +18,25 @@ function mpdt(target, objFile, bhvFile, transferFiles, numClusters, numjointCoef
     
     joints = smartSvd(joints);
     jointAverage = joints.M;
-    jointBasis = joints.U';
-    sampleJoints = joints.V(:,1:numTransferCoefs)';
+    jointBasis = joints.U(:,1:numjointCoefs)';
+    sampleJoints = joints.V(:,1:numjointCoefs)';
     
     out = fopen(strcat(target, '.mpdt'), 'w');
     writeMatrix(out, jointAverage, 'float32');
-    writeMatrix(out, jointBasis(1:numjointCoefs,:), 'float32');
+    writeMatrix(out, jointBasis, 'float32');
     writeMatrix(out, sampleJoints, 'float32');
     
     sampleTransfer = zeros(numTransferCoefs, size(transfers.O, 2));
     clusters = kmeans(transfers.V(:,1:3), numClusters);
     figure; hist(clusters, unique(clusters));
-    
-    fwrite(out, numClusters, 'int32');
-    fwrite(out, numTransferCoefs, 'int32');
 
     for i = 1:numClusters
         indexes = clusters == i;
         cluster = smartSvd(transfers.O(:, indexes));
-        maps = transferMaps(objFile, [cluster.M cluster.U(:,1:numjointCoefs)], mapsSize, 4);
+        maps = transferMaps(objFile, [cluster.M cluster.U(:,1:numTransferCoefs)], mapsSize, 4);
+        numMaps = size(maps);
         
-        for c = 1:numTransferCoefs
+        for c = 1:numMaps
            limit = mapsSize * 2;
            half = mapsSize + 1;
            
@@ -48,12 +46,14 @@ function mpdt(target, objFile, bhvFile, transferFiles, numClusters, numjointCoef
            image(1:mapsSize, half:limit, :) = maps{c}{3};
            image(half:limit, half:limit, :) = maps{c}{4};
            
-           hdrwrite(image, strcat(target, num2str(i), '_', num2str(c), '.hdr'));
+           hdrwrite(image, strcat(target, num2str(i-1), '_', num2str(c-1), '.hdr'));
         end
         
         sampleTransfer(:,indexes) = cluster.V(:,1:numjointCoefs)';
     end
     
-    writeMatrix(out, clusters - 1, 'int32');
     writeMatrix(out, sampleTransfer, 'float32');
+    writeMatrix(out, clusters - 1, 'int32');
+    
+    fwrite(out, [numClusters numMaps], 'int32');
 end
