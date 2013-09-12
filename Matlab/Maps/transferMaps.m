@@ -1,17 +1,21 @@
-function transferMaps(obj, transf, width)
-    [vertices, faces, coords] = geometry(obj);
-    transf = transfer(transf);
-    numValues = size(transf) / size(vertices) * 3;
-
-    image = zeros(width, width, 3);
+function maps = transferMaps(objFile, transfers, width, minimum)
+    [vertices, faces, coords] = geometry(objFile);
+    numCoefs = int32(size(transfers) / size(vertices));
+    numValues = numCoefs * 3;
+   
     pixels = linspace(0, 1, width);
     xy = coords(:, faces(2:2:end));
     x = xy(1,:)'; y = xy(2,:)';
     
-    for p = 1:size(transf, 2)
-        for c = (1:3:numValues) - 1
+    image = zeros(width, width, 3);
+    maps = {};
+        
+    for c = 1:numCoefs
+        maps{c} = {};
+        
+        for p = 1:size(transfers, 2)
             for i = 1:3
-                coef = transf(i+c:numValues:end,p);
+                coef = transfers(i + c*3 - 3: numValues : end, p);
                 v = coef(faces(1:2:end));
                 f = scatteredInterpolant(x, y, v);
 
@@ -21,8 +25,13 @@ function transferMaps(obj, transf, width)
                     end
                 end
             end
-
-            figure; imshow(image);
+            
+            minima = min(min(min(image)));
+            if (-minima > minimum)
+                error('Image contains value (%f) smaller than minimum bound provided', minima);
+            end
+            
+            maps{c}{p} = image + minimum;
         end
     end
 end
