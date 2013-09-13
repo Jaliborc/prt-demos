@@ -2,8 +2,8 @@
 #include <osg/StateSet>
 #include <osg/Uniform>
 
-struct PdtShader : Pdt {
-	PdtShader(const char* path, StateSet* uniforms) : Pdt(path), state(uniforms) {
+struct PdtState : Pdt {
+	PdtState(const char* path, StateSet* uniforms) : Pdt(path), state(uniforms) {
 		for (int c = 0; c < numMaps; c++) {
 			ostringstream name;
 			name << "transfer" << c;
@@ -30,6 +30,7 @@ struct PdtShader : Pdt {
 		}
 
 		float* values = sampleTransfer.colptr(sample);
+		cout << values[0] << " " <<  values[1] <<  " " << values[2];
 		transfer->setArray(new FloatArray(values, values + sampleTransfer.n_rows));
 	}
 
