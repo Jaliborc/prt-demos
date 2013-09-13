@@ -30,11 +30,10 @@ struct PdtState : Pdt {
 		}
 
 		float* values = sampleTransfer.colptr(sample);
-		cout << values[0] << " " <<  values[1] <<  " " << values[2];
 		transfer->setArray(new FloatArray(values, values + sampleTransfer.n_rows));
 	}
 
-	Uniform* transfer;
-	StateSet* state;
+	Uniform *transfer;
+	StateSet *state;
 	int cluster;
 };

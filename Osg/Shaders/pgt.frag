@@ -31,23 +31,15 @@ vec3 shContribution(int index, sampler2D texture) {
 }
 
 void main() {
-	/*vec2 uv = vec2(gl_TexCoord[0]) / 2.0;
-	vec2 uv2 = uv + 0.5;
-
-	vec3 average = sampleTransfer(transfer0, vec2(uv.x, uv2.y));
-	vec3 first = sampleTransfer(transfer0, uv2);
-	vec3 second = sampleTransfer(transfer0, uv);
-	vec3 third = sampleTransfer(transfer0, vec2(uv2.x, uv.y));
-	vec3 sum = average +
-			   first * transferCoefs[0] +
-			   second * transferCoefs[1] +
-			   third * transferCoefs[2];
-
-	gl_FragColor = vec4(sum * environmentTransfer[0], 1);*/
-
-	gl_FragColor = vec4(shContribution(0, transfer0) +
+	vec3 total = shContribution(0, transfer0) +
 				shContribution(1, transfer1) +
 				shContribution(2, transfer2) +
 				shContribution(3, transfer3) +
-				shContribution(4, transfer4), 1);
+				shContribution(4, transfer4) +
+				shContribution(5, transfer5) +
+				shContribution(6, transfer6) +
+				shContribution(7, transfer7) +
+				shContribution(8, transfer8);
+
+	gl_FragColor = vec4(total, 1);
 }
