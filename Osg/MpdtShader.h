@@ -4,12 +4,9 @@
 
 struct PdtShader : Pdt {
 	PdtShader(const char* path, StateSet* uniforms) : Pdt(path), state(uniforms) {
-		cout << numMaps << "\n";
 		for (int c = 0; c < numMaps; c++) {
 			ostringstream name;
 			name << "transfer" << c;
-
-			cout << name.str().c_str();
 			state->addUniform(new Uniform(name.str().c_str(), c+3));
 		}
 

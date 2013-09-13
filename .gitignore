@@ -12,6 +12,7 @@
 *.visibility
 *.transfer
 *.jpg
+*.hdr
 
 *.pgt
 *.pgst

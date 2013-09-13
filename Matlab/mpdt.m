@@ -1,4 +1,4 @@
-function mpdt(target, objFile, bhvFile, transferFiles, numClusters, numjointCoefs, numTransferCoefs, mapsSize)
+function mpdt(target, objFile, bhvFile, transferFiles, numClusters, numjointCoefs, numTransferCoefs, mapsSize, mapOff)
     transfers = smartSvd(transfer(transferFiles));
     angles = readBvh(bhvFile);
     angles = angles(4:end, 1:size(transfers.O, 2));
@@ -33,8 +33,8 @@ function mpdt(target, objFile, bhvFile, transferFiles, numClusters, numjointCoef
     for i = 1:numClusters
         indexes = clusters == i;
         cluster = smartSvd(transfers.O(:, indexes));
-        maps = transferMaps(objFile, [cluster.M cluster.U(:,1:numTransferCoefs)], mapsSize, 4);
-        numMaps = size(maps);
+        maps = transferMaps(objFile, [cluster.M cluster.U(:,1:numTransferCoefs)], mapsSize, mapOff);
+        numMaps = size(maps, 2);
         
         for c = 1:numMaps
            limit = mapsSize * 2;
@@ -49,7 +49,7 @@ function mpdt(target, objFile, bhvFile, transferFiles, numClusters, numjointCoef
            hdrwrite(image, strcat(target, num2str(i-1), '_', num2str(c-1), '.hdr'));
         end
         
-        sampleTransfer(:,indexes) = cluster.V(:,1:numjointCoefs)';
+        sampleTransfer(:,indexes) = cluster.V(:,1:numTransferCoefs)';
     end
     
     writeMatrix(out, sampleTransfer, 'float32');

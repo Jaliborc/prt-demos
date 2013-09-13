@@ -38,7 +38,8 @@ struct Pdt {
 		for (int i = 0; i < numClusters; i++)
 			for (int c = 0; c < numMaps; c++) {
 				ostringstream name;
-				name << path << "_" << i << "_" << c << ".exr";
+				name << path << i << "_" << c << ".hdr";
+				cout << name.str().c_str() << "\n";
 
 				int index = i * numMaps + c;
 				textures[index] = new Texture2D;
