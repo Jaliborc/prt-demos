@@ -15,7 +15,7 @@ void main() {
     ambient = gl_FrontLightModelProduct.sceneColor + ambient * gl_FrontMaterial.ambient;
    	diffuse = diffuse * gl_FrontMaterial.diffuse;
     spec = spec * gl_FrontMaterial.specular;
-    //spec = spec * vec4(texture2D(specular, uv).rgb, 1);
+    //spec = spec * texture2D(specular, uv).r * 0.1;
 
 	gl_FragData[0] = diffuse * SoftShadow();
 	gl_FragData[1] = ResidualLight() + ambient + spec;

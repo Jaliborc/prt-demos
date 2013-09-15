@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"osg",
+				"osgUtil"
+			],
+			[
 				"add",
 				"addUniform"
 			],
@@ -50,10 +54,6 @@
 			[
 				"new",
 				"newLabel"
-			],
-			[
-				"osg",
-				"osgWidget"
 			],
 			[
 				"name",
@@ -204,34 +204,18 @@
 	"buffers":
 	[
 		{
-			"file": "MpdtMain.cpp",
+			"file": "Shaders/pdtMain.frag",
 			"settings":
 			{
-				"buffer_size": 1915,
+				"buffer_size": 811,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Mpdt.h",
+			"file": "SConstruct",
 			"settings":
 			{
-				"buffer_size": 1980,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "MpdtState.h",
-			"settings":
-			{
-				"buffer_size": 956,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Shaders/pdt.frag",
-			"settings":
-			{
-				"buffer_size": 1364,
+				"buffer_size": 237,
 				"line_ending": "Unix"
 			}
 		}
@@ -312,18 +296,31 @@
 	},
 	"file_history":
 	[
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PgtMain.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdtMain.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtEffects.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pgt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Environment.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pgt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdtSimple.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtMain.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PgtMain.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtState.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtShader.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Mpdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtState.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pgt.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtMain.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Environment.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/OsgViewer",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtShader.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtTest.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Main.cpp",
@@ -426,20 +423,7 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/transmittance.frag",
 		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/SeparableSSS.cpp",
 		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/SeparableSSS.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/FullscreenQuad.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/depth.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/mirror.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/basicTexture.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/basicTexture.frag",
-		"/Users/Jaliborc/Downloads/src/Tests/TextureTests/GLSL/BasicMultiTexture.vert",
-		"/Users/Jaliborc/Downloads/src/Tests/TextureTests/GLSL/BasicMultiTexture.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/goraund.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/goraund.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Sh.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Media/white.radiance",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ModelViewer.sublime-project"
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/FullscreenQuad.cpp"
 	],
 	"find":
 	{
@@ -519,6 +503,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"UpdateVisitor",
+			"OSG_ALPHAFUNC",
+			"scene\\",
+			"scene",
+			"light",
+			"fullsc",
+			"display",
+			"hand",
+			"hand,m",
+			"light",
+			"scene",
+			"readF",
+			"FullscreenQuad",
+			"minima",
 			"transferCoefs",
 			"numtex",
 			"numc",
@@ -632,21 +630,7 @@
 			"    \"",
 			"_texture",
 			"_texturef",
-			"shadowTexture",
-			"DynamicShadow",
-			"stateset",
-			"program",
-			"FRAGMENT_SHADERS_ONLY",
-			"getMainVertexShader",
-			"_shadowFragmentShader",
-			"st",
-			"_shadowFragmentShader",
-			"valid",
-			"_mainFragmentShader",
-			"program",
-			"_shadowFragmentShader",
-			"_mainFragmentShader",
-			"DynamicShadow"
+			"shadowTexture"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -685,84 +669,28 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "MpdtMain.cpp",
+					"file": "Shaders/pdtMain.frag",
 					"settings":
 					{
-						"buffer_size": 1915,
+						"buffer_size": 811,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								348,
-								348
+								811,
+								811
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 48.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Mpdt.h",
-					"settings":
-					{
-						"buffer_size": 1980,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1084,
-								1087
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 442.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "MpdtState.h",
-					"settings":
-					{
-						"buffer_size": 956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								897,
-								897
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -771,25 +699,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Shaders/pdt.frag",
+					"buffer": 1,
+					"file": "SConstruct",
 					"settings":
 					{
-						"buffer_size": 1364,
+						"buffer_size": 237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								876,
-								876
+								221,
+								221
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -845,6 +772,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"mult",
+				"Osg/Classes/MultipassEffects.h"
+			],
+			[
+				"pdt",
+				"Osg/Classes/PdtState.h"
+			],
 			[
 				"environment",
 				"Osg/Environment.h"
@@ -1348,14 +1283,6 @@
 			[
 				"slot",
 				"PetTracker/Combat/Slot.lua"
-			],
-			[
-				"pettra",
-				"PetTracker/PetTracker.lua"
-			],
-			[
-				"blizzard_pet",
-				"Source/AddOns/Blizzard_PetJournal/Blizzard_PetJournal.lua"
 			]
 		],
 		"width": 0.0

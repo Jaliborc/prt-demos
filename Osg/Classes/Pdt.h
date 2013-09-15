@@ -1,6 +1,7 @@
 #include <sstream>
 #include <fstream>
 #include <armadillo>
+#include <limits>
 #include <osgDB/ReadFile>
 #include <osg/Texture2D>
 
@@ -14,17 +15,18 @@ void readMatrix(Mat<type>* target, ifstream& source) {
 	source.read((char*) &size, sizeof(int) * 2);
 
 	int total = size[0] * size[1];
-	type content[total];
+	type* content = new type[total];
 	source.read((char*) content, sizeof(type) * total);
 
 	*target = Mat<type>(content, size[0], size[1]);
+	delete content;
 }
 
 struct Pdt {
 	Pdt(const char* path) {
 		ostringstream filename;
 		filename << path << ".pdt";
-		ifstream stream(filename.str().c_str());
+		ifstream stream(filename.str().c_str(), ios_base::binary);
 
 		readMatrix<float>(&jointAverage, stream);
 		readMatrix<float>(&jointBasis, stream);
@@ -52,7 +54,7 @@ struct Pdt {
 	}
 
 	int closestNeighbor(fmat& reducedJoints) {
-		float minDistance = numeric_limits<int>::max();
+		float minDistance = std::numeric_limits<float>::max();
 		int neighbor;
 
 		for (int i = 0; i < sampleJoints.n_cols; i++) {

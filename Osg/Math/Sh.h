@@ -3,7 +3,7 @@
 
 #define MAX_SH_ORDER 4
 #define MAX_SH_COEF MAX_SH_ORDER * MAX_SH_ORDER
-#define SH_SCALE M_PI * 16.0f/17.0f
+#define SH_SCALE osg::PI * 16.0f/17.0f
 #include "ShEval.h"
 
 using namespace osg;
@@ -25,7 +25,7 @@ Vec3 dominantSHColor(Vec3Array* coefs, Vec3& w) {
 	shEval(w.x(), w.y(), w.z(), y);
 
 	Vec3 color;
-	float scale;
+	float scale = 0;
 
 	for (int i = 1; i <= 3; i++) {
 		float t = y[i] * SH_SCALE;
