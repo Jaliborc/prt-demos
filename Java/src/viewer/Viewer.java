@@ -10,7 +10,7 @@ public class Viewer extends Window {
 		viewer.extensions = new String[] {"obj", "pgv", "pgt", "pgst"};
 		viewer.screenshotDirectory = "../Models";
 		viewer.modelDirectory = "../Models";
-		viewer.Start("hand/static.pgt");
+		viewer.Start("horse.pgt");
 	}
 	
 	protected Presenter getPresenter(Drawable drawable, String file) {

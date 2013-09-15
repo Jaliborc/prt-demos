@@ -17,6 +17,9 @@
 *.pgt
 *.pgst
 *.pgv
+*.mpdt
+*.pdt
+*.npgt
 *.o
 
 *.bvh

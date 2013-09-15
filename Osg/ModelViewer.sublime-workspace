@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"add",
+				"addUniform"
+			],
+			[
+				"tr",
+				"transferCoefs"
+			],
+			[
 				"size",
 				"sizeof"
 			],
@@ -66,10 +74,6 @@
 			[
 				"Texture",
 				"Texture2D"
-			],
-			[
-				"add",
-				"addChild"
 			],
 			[
 				"main",
@@ -200,10 +204,34 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgAnimation/RigGeometry",
+			"file": "MpdtMain.cpp",
 			"settings":
 			{
-				"buffer_size": 4963,
+				"buffer_size": 1915,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Mpdt.h",
+			"settings":
+			{
+				"buffer_size": 1980,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MpdtState.h",
+			"settings":
+			{
+				"buffer_size": 956,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Shaders/pdt.frag",
+			"settings":
+			{
+				"buffer_size": 1364,
 				"line_ending": "Unix"
 			}
 		}
@@ -284,15 +312,28 @@
 	},
 	"file_history":
 	[
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PgtMain.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pgt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Mpdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtState.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtMain.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Environment.h",
-		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgPlugins/fbx/fbxRMesh.cpp",
-		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgAnimation/RigGeometry.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Main.cpp",
-		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgPlugins/fbx/ReaderWriterFBX.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/OsgViewer",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtShader.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtTest.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Main.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/LoadTextures",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgAnimation/RigGeometry.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgAnimation/VertexInfluence.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgAnimation/VertexInfluence",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgAnimation/RigGeometry",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgPlugins/fbx/fbxRMesh.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgPlugins/fbx/ReaderWriterFBX.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/OldPdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Matrix.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ReadStream.h",
@@ -310,7 +351,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/VisualHandModel/VisualHandModel.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Slider.h",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/NEWS.txt",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadow.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.frag",
@@ -399,19 +439,7 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/goraund.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Media/white.radiance",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ModelViewer.sublime-project",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/VisualHandShader.cpp",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Pgt.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Environment.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/VisualHandShader.cpp",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Media/museum.radiance",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/VisualHandShader",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/ShEval.h",
-		"/Users/Jaliborc/Desktop/SHEvalFast_forJoao.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Sh.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Experiments.cpp",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/EnvironmentLight.h",
-		"/Users/Jaliborc/Documents/Research/VisualHandModel/Scene.h"
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ModelViewer.sublime-project"
 	],
 	"find":
 	{
@@ -419,9 +447,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
+			"",
 			"osgPlugins/fbx/*",
 			"",
 			"*.cpp",
@@ -490,6 +519,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"transferCoefs",
+			"numtex",
+			"numc",
+			"numce",
+			"vec2",
+			"vec3",
+			"vec2",
+			"buildVertex2BoneList",
+			"VertexInfluence",
+			"VertexInfluenceMap",
+			"_vertexInfluenceMap",
+			"_vertexInfluenceSet",
+			"_geometry",
+			"matrix",
+			"UpdateVertex",
+			"FindNearestParentSkeleton",
 			"riggeome",
 			"rigge",
 			"_geome",
@@ -601,23 +646,7 @@
 			"program",
 			"_shadowFragmentShader",
 			"_mainFragmentShader",
-			"DynamicShadow",
-			"colorAmbientEmissive",
-			"searchAndReplaceShaderSource",
-			"gl_TexCoord[1]",
-			"_shadowFragmentShader",
-			"colorAmbientEmissive",
-			"\\n\"",
-			"   \\n\"",
-			"        \"",
-			"        \"     ",
-			"     \\n\"",
-			"\\n\"",
-			"        \"",
-			"_mainFragmentShader",
-			"DynamicShadow",
-			"NumEnabledLights",
-			"DirectionalLight"
+			"DynamicShadow"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -656,23 +685,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgAnimation/RigGeometry",
+					"file": "MpdtMain.cpp",
 					"settings":
 					{
-						"buffer_size": 4963,
+						"buffer_size": 1915,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2770,
-								2776
+								348,
+								348
 							]
 						],
 						"settings":
@@ -682,7 +711,88 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1314.0,
+						"translation.y": 48.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Mpdt.h",
+					"settings":
+					{
+						"buffer_size": 1980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1084,
+								1087
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 442.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "MpdtState.h",
+					"settings":
+					{
+						"buffer_size": 956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								897,
+								897
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Shaders/pdt.frag",
+					"settings":
+					{
+						"buffer_size": 1364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								876,
+								876
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -735,6 +845,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"environment",
+				"Osg/Environment.h"
+			],
+			[
+				"vertex",
+				"OpenSceneGraph-3.0.1/src/osgAnimation/VertexInfluence.cpp"
+			],
+			[
+				"rigg",
+				"OpenSceneGraph-3.0.1/src/osgAnimation/RigGeometry.cpp"
+			],
 			[
 				"readwriterf",
 				"OpenSceneGraph-3.0.1/src/osgPlugins/fbx/ReaderWriterFBX.cpp"
@@ -1234,18 +1356,6 @@
 			[
 				"blizzard_pet",
 				"Source/AddOns/Blizzard_PetJournal/Blizzard_PetJournal.lua"
-			],
-			[
-				"switche",
-				"Switcher/Switcher.lua"
-			],
-			[
-				"enemyac",
-				"PetTracker/Features/EnemyActions.lua"
-			],
-			[
-				"battleui",
-				"Source/AddOns/Blizzard_PetBattleUI/Blizzard_PetBattleUI.lua"
 			]
 		],
 		"width": 0.0

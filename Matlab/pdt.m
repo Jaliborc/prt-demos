@@ -1,47 +1,58 @@
-function pdt(target, transferFiles, bhvFile, numClusters, numjointCoefs, numTransferCoefs)
-    % Builds a pose dependant transfer file.
-    transfers = smartSvd(transfer(transferFiles));
-    angles = readBvh(bhvFile);
-    angles = angles(4:end, 1:size(transfers.O, 2));
-    joints = [];
+function pdt(folder, numClusterRange, numJointCoefs, numTransferCoefs, mapsSize)
+    Joints = readBvhQuaternions(strcat(folder, '.bvh'));
+    Joints = svdStruct(Joints, numJointCoefs);
     
-    for i = 1:3:size(angles)
-       joint = SpinCalc('EA123toQ', angles(i:i+2,:)', 0, 0);
-       
-       for k = 1:size(joint)
-          if joint(k,4) < 0
-              joint(k,:) = joint(k,:) * -1;
-          end
-       end
-       
-       joints = [joints; joint(:,4)'; joint(:,1:3)'];
-    end
+    out = fopen(strcat(folder, '.pdt'), 'w');
+    writeMatrix(out, Joints.M, 'float32');
+    writeMatrix(out, Joints.U', 'float32');
+    writeMatrix(out, Joints.V, 'float32');
     
-    joints = smartSvd(joints);
-    jointAverage = joints.M;
-    jointBasis = joints.U';
-    sampleJoints = joints.V(:,1:numTransferCoefs)';
+    [Transfer] = transfer(fullfile(folder, '*.transfer'));
+    [Transfer] = svdStruct(Transfer, 15);
+    [Clusters, NumClusters] = recursiveClusters(Transfer.V', numClusterRange, 50);
     
-    out = fopen(target, 'w');
-    writeMatrix(out, jointAverage, 'float32');
-    writeMatrix(out, jointBasis(1:numjointCoefs,:), 'float32');
-    writeMatrix(out, sampleJoints, 'float32');
+    Objs = dir(fullfile(folder, '*.obj'));
+    Obj = fullfile(folder, Objs(1).name);
     
-    fwrite(out, numClusters, 'int32');
-    sampleTransfer = zeros(numTransferCoefs, size(transfers.O, 2));
-    clusters = kmeans(transfers.V(:,1:3), numClusters);
-    figure; hist(clusters, unique(clusters));
+    SampleTransfer = [];
+    Minima = 0; Maxima = 0;
+    Maps = {};
 
-    for i = 1:numClusters
-        indexes = clusters == i;
-        cluster = smartSvd(transfers.O(:, indexes));
+    for i = 1:NumClusters
+        Poses = Clusters == i;
+        Cluster = svdStruct(Transfer.O(:, Poses), numTransferCoefs);
         
-        writeMatrix(out, cluster.M, 'float32');
-        writeMatrix(out, cluster.U(:,1:numjointCoefs), 'float32');
-
-        sampleTransfer(:,indexes) = cluster.V(:,1:numjointCoefs)';
+        Maps{i} = transferMaps(Obj, [Cluster.M Cluster.U], mapsSize);
+        SampleTransfer(:,Poses) = Cluster.V;
+        NumMaps = size(Maps{i}');
+        
+        for a = 1:NumMaps
+            for b = 1:size(Maps{i}{a}')
+               Minima = min(Minima, min(min(min(Maps{i}{a}{b}))));
+               Maxima = max(Maxima, max(max(max(Maps{i}{a}{b}))));
+            end
+        end
     end
     
-    writeMatrix(out, clusters - 1, 'int32');
-    writeMatrix(out, sampleTransfer, 'float32');
+    for i = 1:NumClusters
+        for c = 1:NumMaps
+           limit = mapsSize * 2;
+           half = mapsSize + 1;
+           
+           image = zeros(limit, limit, 3);
+           image(1:mapsSize, 1:mapsSize, :) = Maps{i}{c}{1};
+           image(half:limit, 1:mapsSize, :) = Maps{i}{c}{2};
+           image(1:mapsSize, half:limit, :) = Maps{i}{c}{3};
+           image(half:limit, half:limit, :) = Maps{i}{c}{4};
+           
+           imwrite(image - Minima, strcat(folder, num2str(i-1), '_', num2str(c-1), '.png'));
+        end
+    end
+    
+    writeMatrix(out, SampleTransfer, 'float32');
+    writeMatrix(out, Clusters - 1, 'int32');
+    
+    fwrite(out, Minima, 'float32');
+    fwrite(out, [NumClusters NumMaps], 'int32');
+    fclose(out);
 end

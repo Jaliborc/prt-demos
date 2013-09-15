@@ -11,8 +11,6 @@ function dynamicColormaps(destination, source, images, bvh, numPoses)
             entry.image = imread(fullfile(source, strcat(images{i}, '.png'))) - baseImage;
             entry.offs = sum(abs(offs(i*3-2:i*3, :)));
             entry.offs = entry.offs / max(entry.offs);
-            
-            %figure; plot(entry.offs);
         else
             entry = 0;
         end
