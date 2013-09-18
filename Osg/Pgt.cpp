@@ -9,7 +9,7 @@ using namespace osgGA;
 int main() {
     // Scene
     Program* program = new Program;
-    program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/main.frag"));
+    program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/pgt.frag"));
 
     Pgt* hand = new Pgt("../Models/hand/fingerBend.npgt");
     Environment environment("../Ambients/Museum.tga");

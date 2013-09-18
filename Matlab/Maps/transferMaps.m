@@ -1,4 +1,4 @@
-function maps = transferMaps(objFile, transfers, width)
+function [maps, minima, maxima] = transferMaps(objFile, transfers, width)
     [vertices, faces, coords] = geometry(objFile);
     numCoefs = int32(size(transfers) / size(vertices));
     numValues = numCoefs * 3;
@@ -8,6 +8,7 @@ function maps = transferMaps(objFile, transfers, width)
     uv = 1 - linspace(0, 1, width);
     
     image = zeros(width, width, 3);
+    minima = 0; maxima = 0;
     maps = {};
         
     for c = 1:numCoefs
@@ -28,6 +29,8 @@ function maps = transferMaps(objFile, transfers, width)
                 image(:,:,i) = rot90(image(:,:,i), -1);
             end
             
+            minima = min(minima, min(min(min(image))));
+            maxima = max(minima, max(max(max(image))));
             image(isnan(image)) = 0;
             maps{c}{p} = image;
         end

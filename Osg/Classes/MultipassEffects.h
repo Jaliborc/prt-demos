@@ -41,7 +41,7 @@ Group* MultipassEffects(Node* mesh, Environment& environment, Program* program) 
     specular->setImage(readImageFile("../Models/hand/specular.png"));
 
     Material* material = new Material;
-    material->setSpecular(Material::FRONT, Vec4(1,1,1,1));
+    material->setSpecular(Material::FRONT, Vec4(.5, .5, .5, 1));
     material->setShininess(Material::FRONT, 4.0f);
 
     program->addShader(readShaderFile(Shader::VERTEX, "Shaders/main.vert"));

@@ -11,7 +11,8 @@ function quats = readBvhQuaternions(file)
           end
        end
        
-       quats = [quats; joint(:,4)'; joint(:,1:3)'];
+       joint = joint';
+       quats = [quats; joint(4,:); joint(1,:); joint(3,:); joint(2,:)];
     end
 end
 

@@ -9,7 +9,6 @@ int main() {
 	// Scene
 	Group* scene = new Group;
 	Node *hand = osgDB::readNodeFile("../Captures/generated/300 paper poses/poses 100.0001.obj");
-
     Environment environment("../Ambients/Museum.tga");
 	PdtState pdt("../Captures/generated/300 paper poses", hand, environment);
 
@@ -18,8 +17,8 @@ int main() {
 
     // Shading
     Program *program = new Program;
-    program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/pdt.frag"));
-    program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/pdtSimple.frag"));
+    program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/rpdt.frag"));
+    program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/simple.frag"));
 
     StateSet* state = hand->getOrCreateStateSet();
     state->setAttributeAndModes(program, StateAttribute::ON);
@@ -37,20 +36,10 @@ int main() {
     manipulator->setDistance(hand->getBound().radius() * 4);
 
     // Run
-    Timer timer;
-    Timer_t last = 0;
-    int pose = 0;
-
-    while (!viewer.done()) {
-        Timer_t now = timer.tick();
-        if (timer.delta_s(last, now) > 1.0) {
-            last = now;
-            cout << pose << "\n";
-            pdt.update(pose++);
-        }
-
-        viewer.frame();
-    }
+    fmat joints;
+    joints << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0;
+    joints = joints.t();
+    pdt.rbfUpdate(joints);
 
     return viewer.run();
 }

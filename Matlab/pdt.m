@@ -24,7 +24,7 @@ function pdt(folder, numClusterRange, numJointCoefs, numTransferCoefs, mapsSize)
         
         Maps{i} = transferMaps(Obj, [Cluster.M Cluster.U], mapsSize);
         SampleTransfer(:,Poses) = Cluster.V;
-        NumMaps = size(Maps{i}');
+        NumMaps = size(Maps{i});
         
         for a = 1:NumMaps
             for b = 1:size(Maps{i}{a}')

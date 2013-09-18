@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"re",
+				"reduceJoints"
+			],
+			[
 				"osg",
 				"osgUtil"
 			],
@@ -203,22 +207,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Shaders/pdtMain.frag",
-			"settings":
-			{
-				"buffer_size": 811,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "SConstruct",
-			"settings":
-			{
-				"buffer_size": 237,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -296,23 +284,33 @@
 	},
 	"file_history":
 	[
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.vert",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtWithEffects.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/superFine.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Environment.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/rpdt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtState.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Rbf.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osg/Quat",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osg/MixinVector",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osg/Vec3f",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osg/Quat.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdtMain.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtEffects.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pgt.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Environment.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdtSimple.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtMain.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PgtMain.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtState.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtShader.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Mpdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/MpdtState.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pgt.frag",
@@ -348,7 +346,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/VisualHandModel/VisualHandModel.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Slider.h",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/NEWS.txt",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadow.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/FullscreenQuad.h",
@@ -375,7 +372,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/horizontal.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/firstScatter.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.vert",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/DeferredTesting.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/display.frag",
 		"/Users/Jaliborc/Desktop/Shaders/mirror.frag",
@@ -415,15 +411,7 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/directLight.vert",
 		"/Users/Jaliborc/Downloads/separable-sss-master/SeparableSSS.h",
 		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Shaders/SMAA.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Test.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/specular.frag",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/Demo.cpp",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/Support/SkyDome.cpp",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/Support/ShadowMap.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/transmittance.frag",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/SeparableSSS.cpp",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Code/SeparableSSS.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/FullscreenQuad.cpp"
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Test.cpp"
 	],
 	"find":
 	{
@@ -500,9 +488,23 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"s1",
+			"material",
+			"diffuse",
+			"ambient",
+			"transf",
+			"n_elem",
+			"transferCoefs[i];",
+			"k(i)",
+			"sampleTransfer",
+			"quatDistance",
+			"dot(",
+			"::dot",
+			"dot",
+			"maker",
 			"UpdateVisitor",
 			"OSG_ALPHAFUNC",
 			"scene\\",
@@ -616,21 +618,7 @@
 			"ecPosition",
 			"gl_TextureMatrix",
 			"gl_TexCoord[0]",
-			"gl_FragCoord",
-			"gl_",
-			"DynamicShadow",
-			"gl_",
-			"VERTEX",
-			"FRAGMENT",
-			"VERTEX",
-			"Vertex",
-			"_shaderList",
-			"camera",
-			"\\n\"",
-			"    \"",
-			"_texture",
-			"_texturef",
-			"shadowTexture"
+			"gl_FragCoord"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -669,67 +657,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Shaders/pdtMain.frag",
-					"settings":
-					{
-						"buffer_size": 811,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								811,
-								811
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "SConstruct",
-					"settings":
-					{
-						"buffer_size": 237,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								221,
-								221
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -772,6 +707,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"vec3f",
+				"OpenSceneGraph-3.0.1/include/osg/Vec3f"
+			],
+			[
+				"vecto",
+				"OpenSceneGraph-3.0.1/include/osg/MixinVector"
+			],
+			[
+				"quat.cpp",
+				"OpenSceneGraph-3.0.1/src/osg/Quat.cpp"
+			],
+			[
+				"quat",
+				"OpenSceneGraph-3.0.1/include/osg/Quat"
+			],
 			[
 				"mult",
 				"Osg/Classes/MultipassEffects.h"
@@ -1267,22 +1218,6 @@
 			[
 				"enem",
 				"PetTracker/Features/EnemyActions.lua"
-			],
-			[
-				"petjo",
-				"Source/AddOns/Blizzard_PetJournal/Blizzard_PetJournal.xml"
-			],
-			[
-				"tamerjour",
-				"Journal/Features/TamerJournal.xml"
-			],
-			[
-				"swi",
-				"Switcher/Switcher.lua"
-			],
-			[
-				"slot",
-				"PetTracker/Combat/Slot.lua"
 			]
 		],
 		"width": 0.0

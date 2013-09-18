@@ -1,5 +1,6 @@
 #include "Classes/PdtState.h"
 #include "Classes/MultipassEffects.h"
+
 #include <osgGA/NodeTrackerManipulator>
 #include <osgViewer/Viewer>
 
@@ -9,8 +10,8 @@ using namespace osgGA;
 int main() {
 	// Scene
 	Program* program = new Program;
-	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/pdt.frag")),
-	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/pdtMain.frag"));
+	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/rpdt.frag")),
+	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/main.frag"));
 
 	Node *hand = osgDB::readNodeFile("../Captures/generated/300 paper poses/poses 100.0001.obj");
 	Environment environment("../Ambients/Museum.tga");
@@ -18,8 +19,8 @@ int main() {
 	Group *scene = MultipassEffects(hand, environment, program);
 
 	// Interface
-    NodeTrackerManipulator* manipulator = new NodeTrackerManipulator;
-    manipulator->setNode(hand);
+    NodeTrackerManipulator *manipulator = new NodeTrackerManipulator;
+    manipulator->setTrackNode(hand);
 
     Viewer viewer;
     viewer.setUpViewInWindow(200, 200, 1024, 1024);
@@ -30,7 +31,11 @@ int main() {
     manipulator->setDistance(80);
 
     // Run
-    Timer timer;
+    fmat joints;
+    joints << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0;
+    joints = joints.t();
+    pdt.rbfUpdate(joints);
+    /*Timer timer;
     Timer_t last = 0;
     int pose = 0;
 
@@ -43,7 +48,7 @@ int main() {
         }
 
         viewer.frame();
-    }
+    }*/
 
     return viewer.run();
 }

@@ -49,27 +49,6 @@ struct Pdt {
 			}
 	}
 
-	void reduceJoints(fmat* joints) {
-		*joints = jointBasis * (*joints - jointAverage);
-	}
-
-	int closestNeighbor(fmat& reducedJoints) {
-		float minDistance = std::numeric_limits<float>::max();
-		int neighbor;
-
-		for (int i = 0; i < sampleJoints.n_cols; i++) {
-			fvec sample = sampleJoints.col(i);
-			float distance = norm(sample - reducedJoints, 1);
-
-			if (distance < minDistance) {
-				minDistance = distance;
-				neighbor = i;
-			}
-		}
-
-		return neighbor;
-	}
-
 	ref_ptr<Texture2D> getTexture(int cluster, int map) {
 		return textures[cluster * numMaps + map];
 	}
