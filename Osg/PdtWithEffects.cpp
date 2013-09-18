@@ -14,7 +14,7 @@ int main() {
 	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/main.frag"));
 
 	Node *hand = osgDB::readNodeFile("../Captures/generated/300 paper poses/poses 100.0001.obj");
-	Environment environment("../Ambients/Museum.tga");
+	Environment environment("../Ambients/Street.tga");
 	PdtState pdt("../Captures/generated/300 paper poses", hand, environment);
 	Group *scene = MultipassEffects(hand, environment, program);
 
@@ -35,6 +35,7 @@ int main() {
     joints << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0;
     joints = joints.t();
     pdt.rbfUpdate(joints);
+
     /*Timer timer;
     Timer_t last = 0;
     int pose = 0;

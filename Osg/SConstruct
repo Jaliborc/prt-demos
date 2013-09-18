@@ -2,5 +2,5 @@ env = Environment()
 env.Append(LINKFLAGS = ['-lOpenThreads', '-losg', '-losgDB', '-losgUtil', '-losgGA', '-losgViewer', '-losgShadow', '-losgWidget', '-larmadillo'])
 env.Program(
 	target = 'OsgViewer',
-	source = ['PdtWithEffects.cpp'],
+	source = ['Pdt.cpp'],
 )
