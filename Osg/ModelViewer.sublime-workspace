@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"if",
+				"if	If Condition"
+			],
+			[
+				"Scene",
+				"SceneController"
+			],
+			[
+				"en",
+				"environments"
+			],
+			[
 				"re",
 				"reduceJoints"
 			],
@@ -50,10 +62,6 @@
 			[
 				"Matr",
 				"Matrix"
-			],
-			[
-				"if",
-				"ifstream"
 			],
 			[
 				"new",
@@ -284,21 +292,31 @@
 	},
 	"file_history":
 	[
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtWithEffects.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/superFine.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Environment.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/rpdt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/SceneController.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShEval.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
+		"/Users/Jaliborc/Desktop/ShLight.cpp",
+		"/Users/Jaliborc/Desktop/sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtState.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Environment.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/normals.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtWithEffects.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.vert",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/superFine.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/rpdt.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Rbf.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.cpp",
 		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osg/Quat",
 		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osg/MixinVector",
@@ -401,17 +419,7 @@
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/DebugShadowMap.cpp",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/ShadowMap",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/ShadowTechnique",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgWrappers/serializers/osgShadow/ShadowTechnique.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/constant.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadows.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/RenderTesting.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/directLight.frag",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/ShadowTechnique.cpp",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/examples/osgoutline/osgoutline.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/directLight.vert",
-		"/Users/Jaliborc/Downloads/separable-sss-master/SeparableSSS.h",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Shaders/SMAA.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Test.cpp"
+		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgWrappers/serializers/osgShadow/ShadowTechnique.cpp"
 	],
 	"find":
 	{
@@ -419,7 +427,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"",
@@ -491,6 +499,19 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"pdt",
+			"pow",
+			"shEvalWignerYZ",
+			"print",
+			"D3DX_PI",
+			"PI",
+			"stdlib",
+			"D3DX_PI",
+			"shYFloat",
+			"D3DXVECTOR3",
+			"cenes",
+			"environment",
+			"PositionAttitudeTransform",
 			"s1",
 			"material",
 			"diffuse",
@@ -605,20 +626,7 @@
 			"    \"",
 			"\\n\"",
 			"        \"",
-			"\n        \"",
-			"DynamicShadow",
-			"shadow",
-			"smCoord",
-			"osgShadow_baseTexture",
-			"_shadowTextureUnit",
-			"fragmentSoftShaderSource_withBaseTexture",
-			"_baseTextureUnit",
-			"osgShadow_baseTexture",
-			"texture2d",
-			"ecPosition",
-			"gl_TextureMatrix",
-			"gl_TexCoord[0]",
-			"gl_FragCoord"
+			"\n        \""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -626,6 +634,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"osg::PI",
 			"reflected",
 			"fixed",
 			"",

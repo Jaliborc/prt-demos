@@ -1,3 +1,6 @@
+#ifndef __ENVIRONMENT_SET
+#define __ENVIRONMENT_SET
+
 #include <vector>
 #include <osg/Group>
 #include <osg/LightSource>
@@ -69,3 +72,5 @@ protected:
 	Texture2D *texture;
 	Light* light;
 };
+
+#endif
