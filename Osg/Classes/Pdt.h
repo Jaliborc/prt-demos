@@ -30,33 +30,33 @@ struct Pdt {
 
 		readMatrix<float>(&jointAverage, stream);
 		readMatrix<float>(&jointBasis, stream);
-		readMatrix<float>(&sampleJoints, stream);
-		readMatrix<float>(&sampleTransfer, stream);
+		readMatrix<float>(&jointSamples, stream);
+		readMatrix<float>(&weights, stream);
 		readMatrix<int>(&clusters, stream);
 
 		stream.read((char*) &minima, sizeof(float));
 		stream.read((char*) &numClusters, sizeof(int) * 2);
-		textures = new ref_ptr<Texture2D>[numClusters * numMaps];
+		textures = new ref_ptr<Texture2D>[numClusters * numSH];
 
 		for (int i = 0; i < numClusters; i++)
-			for (int c = 0; c < numMaps; c++) {
+			for (int c = 0; c < numSH; c++) {
 				ostringstream name;
 				name << path << i << "_" << c << ".png";
 
-				int index = i * numMaps + c;
+				int index = i * numSH + c;
 				textures[index] = new Texture2D;
 				textures[index]->setImage(osgDB::readImageFile(name.str().c_str()));
 			}
 	}
 
 	ref_ptr<Texture2D> getTexture(int cluster, int map) {
-		return textures[cluster * numMaps + map];
+		return textures[cluster * numSH + map];
 	}
 
 	ref_ptr<Texture2D> *textures;
-	fmat jointAverage, jointBasis, sampleJoints, sampleTransfer;
+	fmat jointAverage, jointBasis, jointSamples, weights;
 	imat clusters;
 
 	float minima;
-	int numClusters, numMaps;
+	int numClusters, numSH;
 };

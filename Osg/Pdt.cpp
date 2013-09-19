@@ -1,10 +1,12 @@
-#include "Classes/PdtState.h"
 #include <osg/PositionAttitudeTransform>
 #include <osgGA/NodeTrackerManipulator>
 #include <osgViewer/Viewer>
 
-using namespace osgGA;
+#include "Classes/PdtState.h"
+#include "Classes/MultipassEffects.h"
+
 using namespace osgViewer;
+using namespace osgGA;
 
 float Rotation = 0;
 int Background = 0;
@@ -46,52 +48,46 @@ public:
 
 int main() {
 	// Scene
-	Group* scene = new Group;
-    Node *hand = osgDB::readNodeFile("../Captures/generated/300 paper poses/poses 100.0001.obj");
+	Program* program = new Program;
+	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/pdt.frag")),
+	program->addShader(readShaderFile(Shader::FRAGMENT, "Shaders/main.frag"));
+
+	Node *hand = osgDB::readNodeFile("../Captures/generated/300 paper poses/poses 100.0001.obj");
     PositionAttitudeTransform *transform = new PositionAttitudeTransform;
     transform->setPosition(Vec3(0, 0, -10));
     transform->addChild(hand);
 
-    Environment environment("../Ambients/Museum.tga");
-	PdtState pdt("../Captures/generated/300 paper poses", transform, environment);
+	EnvironmentSet environments;
+    environments.add("../Ambients/Museum.tga");
+    environments.add("../Ambients/Street.tga");
 
-	scene->addChild(transform);
-	scene->addChild(environment.background);
-
-    // Shading
-    Program *program = new Program;
-    program->addShader(osgDB::readShaderFile(Shader::VERTEX, "Shaders/main.vert"));
-    program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/rpdt.frag"));
-    program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/normals.frag"));
-
-    StateSet* state = hand->getOrCreateStateSet();
-    state->setAttributeAndModes(program, StateAttribute::ON);
+	PdtState pdt("../Captures/generated/300 paper poses", hand);
+	Group *scene = MultipassEffects(transform, environments, program);
 
 	// Interface
-	NodeTrackerManipulator* manipulator = new NodeTrackerManipulator;
-    manipulator->setNode(transform);
-
+    NodeTrackerManipulator *manipulator = new NodeTrackerManipulator;
     Viewer viewer;
-    viewer.setUpViewInWindow(200, 200, 1024, 1024);
-    viewer.setCameraManipulator(manipulator);
+    viewer.setUpViewInWindow(200, 400, 1024, 1024);
     viewer.getCamera()->setComputeNearFarMode(CullSettings::DO_NOT_COMPUTE_NEAR_FAR);
     viewer.addEventHandler(new KeyboardHandler); 
+    viewer.setCameraManipulator(manipulator);
     viewer.setSceneData(scene);
     viewer.realize();
-    manipulator->setDistance(hand->getBound().radius() * 4);
+    manipulator->setDistance(80);
 
     // Run
     fmat joints;
     joints << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0;
     joints = joints.t();
-    pdt.rbfUpdate(joints);
+    pdt.updatePose(joints);
 
     Timer timer;
     Timer_t last = 0;
 
     while (!viewer.done()) {
-        //Quat(-1.5, Vec3(1, 0, 0))
-        transform->setAttitude(Quat(Rotation, Vec3(0, 1, 0), -1.5, Vec3(1, 0, 0), 0, Vec3()));
+        transform->setAttitude(Quat(Rotation, Vec3(1, 0, 0)));
+        environments.show(Background);
+        pdt.updateScene(environments.ambient);
         viewer.frame();
     }
 

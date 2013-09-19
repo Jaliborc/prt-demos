@@ -1,5 +1,5 @@
 uniform vec3 environmentTransfer[9];
-uniform float transferCoefs[3];
+uniform float transferCoefs[15];
 uniform float transferMinima;
 uniform sampler2D transfer0;
 uniform sampler2D transfer1;
@@ -11,22 +11,25 @@ uniform sampler2D transfer6;
 uniform sampler2D transfer7;
 uniform sampler2D transfer8;
 
-vec3 SampleTransfer(sampler2D texture, vec2 uv) {
-	return texture2D(texture, uv).rgb + transferMinima;
+vec3 SampleTransfer(sampler2D texture, float u, float v) {
+	return texture2D(texture, vec2(u, v) / 4.0).rgb + transferMinima;
 }
 
 vec3 ShContribution(int index, sampler2D texture) {
-	vec2 uv = vec2(gl_TexCoord[0]) / 2.0;
-	vec2 uv2 = uv + 0.5;
+	vec2 uv = vec2(gl_TexCoord[0]);
+	vec3 sum = SampleTransfer(texture, uv.x, uv.y + 3.0);
 
-	vec3 average = SampleTransfer(texture, vec2(uv.x, uv2.y));
-	vec3 first = SampleTransfer(texture, uv);
-	vec3 second = SampleTransfer(texture, uv2);
-	vec3 third = SampleTransfer(texture, vec2(uv2.x, uv.y));
-	vec3 sum = average +
-			   first * transferCoefs[0] +
-			   second * transferCoefs[1] +
-			   third * transferCoefs[2];
+	float y = 2.0;
+	int i = 0;
+	
+	for (float x = 0.0; x < 4.0; x++) {
+		for (; y >= 0.0; y--) {
+			sum += transferCoefs[i] * SampleTransfer(texture, uv.x + x, uv.y + y);
+			i++;
+		}
+
+		y = 3.0;
+	}
 
 	return sum * environmentTransfer[index];
 }

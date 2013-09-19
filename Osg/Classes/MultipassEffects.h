@@ -1,7 +1,8 @@
-#include "Environment.h"
-#include "FullscreenQuad.h"
 #include <osgShadow/ShadowedScene>
 #include <osgShadow/SoftShadowMap>
+
+#include "EnvironmentSet.h"
+#include "FullscreenQuad.h"
 
 #define BUFFER_WIDTH 2048
 #define BUFFER_HEIGHT 1024
@@ -27,11 +28,11 @@ Texture2D* NewBuffer(GLint format = GL_RGBA, Texture::FilterMode filter = Textur
     return buffer;
 }
 
-Group* MultipassEffects(Node* mesh, Environment& environment, Program* program) {
+Group* MultipassEffects(Node* mesh, EnvironmentSet& environments, Program* program) {
 	// Scene
 	Group* root = new Group;
 	ShadowedScene* scene = new ShadowedScene(new SoftShadowMap);
-	scene->addChild(environment.source);
+	scene->addChild(environments.source);
 	scene->addChild(mesh);
 
 	// Main Shading
@@ -65,7 +66,7 @@ Group* MultipassEffects(Node* mesh, Environment& environment, Program* program) 
     main->attach(Camera::COLOR_BUFFER0, diffuse);
     main->attach(Camera::COLOR_BUFFER1, reflected);
     main->attach(Camera::DEPTH_BUFFER, depth);
-    main->addChild(environment.background);
+    main->addChild(environments.background);
     main->addChild(scene);
 
     //// SSSS Pass
