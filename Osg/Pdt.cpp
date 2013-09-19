@@ -1,3 +1,6 @@
+#if defined(WIN32)
+#include <windows.h>
+#endif
 #include "Classes/DefaultSetup.h"
 
 int main() {

@@ -14,6 +14,7 @@ public:
     bool handle(const GUIEventAdapter& event, GUIActionAdapter& _) {
         onInput(event);
         onFrame();
+        return false;
     }
 
 protected:
@@ -43,8 +44,8 @@ protected:
             rotation += direction;
             last = now;
 
-            Vec3Array *radiance = RotateSH(Vec3(-rotation, 0, 0), environments->ambient);
-            transform->setAttitude(Quat(rotation, Vec3(1, 0, 0)));
+            Vec3Array *radiance = RotateSH(Vec3(0, 0, -rotation), environments->ambient);
+            transform->setAttitude(Quat(rotation, Vec3(0, 0, 1)));
             state->updateScene(radiance);
         }
     }

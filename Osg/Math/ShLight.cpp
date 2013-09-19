@@ -14,6 +14,9 @@
  *      for details.
  ************************************************************************/
 
+#if defined(WIN32)
+#include <malloc.h>
+#endif
 #include <math.h>
 #include <osg/Math>
 #include "ShLight.h"

@@ -20,7 +20,7 @@ struct PdtState : Pdt {
 			name << "transfer" << i;
 
 			state->addUniform(new Uniform(name.str().c_str(), i+4));
-			state->setTextureAttributeAndModes(i+4, getTexture(0, i), StateAttribute::ON);
+			state->setTextureAttributeAndModes(i+4, getTexture(0, i).get(), StateAttribute::ON);
 		}
 	}
 
