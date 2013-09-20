@@ -16,6 +16,10 @@ int DefaultSetup(Node *hand, PdtState& state) {
 	EnvironmentSet environments;
     environments.add("../Ambients/Museum.tga");
     environments.add("../Ambients/Street.tga");
+    environments.add("../Ambients/Uffizi Gallery.tga");
+    environments.add("../Ambients/1 1.tga");
+    environments.add("../Ambients/2 1.tga");
+    environments.add("../Ambients/3 1.tga");
 
 	Group *scene = MultipassEffects(transform, environments, program);
 

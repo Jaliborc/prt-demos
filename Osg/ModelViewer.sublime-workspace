@@ -215,14 +215,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Shaders/shadow.frag",
-			"settings":
-			{
-				"buffer_size": 1993,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -300,16 +292,17 @@
 	},
 	"file_history":
 	[
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadow.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/SceneController.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtState.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShEval.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
@@ -372,7 +365,6 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Dependencies/VisualHandModel/VisualHandModel.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Slider.h",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/NEWS.txt",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadow.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/FullscreenQuad.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/ShadowTesting.cpp",
@@ -674,37 +666,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Shaders/shadow.frag",
-					"settings":
-					{
-						"buffer_size": 1993,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								957,
-								957
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
