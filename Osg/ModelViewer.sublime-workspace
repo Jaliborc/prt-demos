@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"add",
+				"addChild"
+			],
+			[
 				"if",
 				"if	If Condition"
 			],
@@ -22,10 +26,6 @@
 			[
 				"osg",
 				"osgUtil"
-			],
-			[
-				"add",
-				"addUniform"
 			],
 			[
 				"tr",
@@ -292,9 +292,19 @@
 	},
 	"file_history":
 	[
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgShadow/ShadowMap.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
+		"/Users/Jaliborc/Desktop/Projects.txt",
+		"/Users/Jaliborc/Applications/World of Warcraft/Workspaces/OmniCC.sublime-project",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Test.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgShadow/ShadowMap",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgShadow/ShadowTechnique.cpp",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/include/osgShadow/ShadowTechnique",
+		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osgShadow/SoftShadowMap.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadow.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
@@ -305,10 +315,8 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShEval.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Desktop/ShLight.cpp",
 		"/Users/Jaliborc/Desktop/sh.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Environment.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/normals.frag",
@@ -411,15 +419,7 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/directional.vert",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/basic.vert",
 		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgWrappers/serializers/osgShadow/StandardShadowMap.cpp",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/StandardShadowMap",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/shadowMap.frag",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/ShadowedScene.cpp",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/ShadowedScene",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/DebugShadowMap",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/DebugShadowMap.cpp",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/ShadowMap",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/ShadowTechnique",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgWrappers/serializers/osgShadow/ShadowTechnique.cpp"
+		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/include/osgShadow/StandardShadowMap"
 	],
 	"find":
 	{
@@ -430,6 +430,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"Test.cpp",
 			"",
 			"osgPlugins/fbx/*",
 			"",
@@ -496,9 +497,29 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"camera",
+			"_camera",
+			"(_camera",
+			"_camera",
+			"debug",
+			"_camer",
+			"addSlave",
+			"addchild",
+			"_camera",
+			"addSlave",
+			"_camera",
+			"camera",
+			"init",
+			"FRAME_BUFFER_OBJECT",
+			"osg::",
+			"camera",
+			"selectLight",
+			"_light",
+			"_light =",
+			"light",
 			"pdt",
 			"pow",
 			"shEvalWignerYZ",
@@ -606,27 +627,7 @@
 			"map",
 			"setTextureAttributeAndModes",
 			"_shadowTextureUnit",
-			"_jitterTextureUnit",
-			"SSSSBlurPS",
-			"display",
-			"depth",
-			"gl_Vertex",
-			"colors",
-			"fov",
-			"colors",
-			"width",
-			"fixed",
-			"specular",
-			"diffuse",
-			"surfac",
-			"ecLen",
-			"spec",
-			"colorAmbientEmissive",
-			"\\n\"",
-			"    \"",
-			"\\n\"",
-			"        \"",
-			"\n        \""
+			"_jitterTextureUnit"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -634,6 +635,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"osg::PI",
 			"reflected",
 			"fixed",
@@ -716,6 +718,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"shadowte",
+				"OpenSceneGraph-3.0.1/src/osgShadow/ShadowTechnique.cpp"
+			],
+			[
+				"shadowtec",
+				"OpenSceneGraph-3.0.1/include/osgShadow/ShadowTechnique"
+			],
+			[
+				"shadowmap",
+				"OpenSceneGraph-3.0.1/include/osgShadow/ShadowMap"
+			],
+			[
+				"softshad",
+				"OpenSceneGraph-3.0.1/src/osgShadow/SoftShadowMap.cpp"
+			],
 			[
 				"vec3f",
 				"OpenSceneGraph-3.0.1/include/osg/Vec3f"
@@ -837,10 +855,6 @@
 				"OpenSceneGraph-3.0.1/src/osg/Geode.cpp"
 			],
 			[
-				"shadowmap",
-				"OpenSceneGraph-3.0.1/src/osgShadow/ShadowMap.cpp"
-			],
-			[
 				"pgt",
 				"Osg/Pgt.h"
 			],
@@ -859,10 +873,6 @@
 			[
 				"light",
 				"Osg/Shaders/lights.frag"
-			],
-			[
-				"softshad",
-				"OpenSceneGraph-3.0.1/src/osgShadow/SoftShadowMap.cpp"
 			],
 			[
 				"softshado",
@@ -905,10 +915,6 @@
 				"OpenSceneGraph-3.0.1/src/osgShadow/ShadowMap.cpp"
 			],
 			[
-				"shadowte",
-				"Osg/ShadowTesting.cpp"
-			],
-			[
 				"standardshadow.cpp",
 				"OpenSceneGraph-3.0.1/src/osgShadow/StandardShadowMap.cpp"
 			],
@@ -947,10 +953,6 @@
 			[
 				"shadowtech",
 				"OpenSceneGraph-3.0.1/include/osgShadow/ShadowTechnique"
-			],
-			[
-				"shadowtec",
-				"OpenSceneGraph-3.0.1/src/osgWrappers/serializers/osgShadow/ShadowTechnique.cpp"
 			],
 			[
 				"shadowt",

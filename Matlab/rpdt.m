@@ -1,4 +1,4 @@
-function rpdt(folder, numJointCoefs)
+function rpdt(folder, numJointCoefs, mapSize)
     Joints = readBvhQuaternions(strcat(folder, '.bvh'));
     Joints = svdStruct(Joints, numJointCoefs);
     
@@ -17,16 +17,17 @@ function rpdt(folder, numJointCoefs)
     Objs = dir(fullfile(folder, '*.obj'));
     Obj = fullfile(folder, Objs(1).name);
     
-    [Maps, Minima] = transferMaps(Obj, [Transfer.M Transfer.U], 1024);
-    NumMaps = size(Maps);
+    [Maps, Minima] = transferMaps(Obj, [Transfer.M Transfer.U], mapSize);
+    [NumHarmonics] = size(Maps');
     
-    for c = 1:NumMaps
-        image = zeros(4096, 4096, 3);
+    for c = 1:NumHarmonics
+        totalSize = mapSize*4;
+        image = zeros(totalSize, totalSize, 3);
         index = 1;
         
-        for y = 1:1024:4096
-            for x = 1:1024:4096
-                image(x:x+1023, y:y+1023, :) = Maps{c}{index};
+        for y = 1:mapSize:totalSize
+            for x = 1:mapSize:totalSize
+                image(x:x+mapSize-1, y:y+mapSize-1, :) = Maps{c}{index};
                 index = index + 1;
             end
         end
@@ -35,6 +36,6 @@ function rpdt(folder, numJointCoefs)
     end
     
     fwrite(out, Minima, 'float32');
-    fwrite(out, [1 NumMaps], 'int32');
+    fwrite(out, [1 NumHarmonics], 'int32');
     fclose(out);
 end

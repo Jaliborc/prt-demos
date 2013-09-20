@@ -33,6 +33,8 @@ function [maps, minima, maxima] = transferMaps(objFile, transfers, width)
             maxima = max(minima, max(max(max(image))));
             image(isnan(image)) = 0;
             maps{c}{p} = image;
+            
+            disp(strcat('Finished coeficient ', num2str(c), ' vector ', num2str(p)));
         end
     end
 end
