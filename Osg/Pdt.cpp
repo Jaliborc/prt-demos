@@ -5,7 +5,7 @@
 
 int main() {
 	Node *hand = osgDB::readNodeFile("../Captures/generated/300 poses/poses 100.0001.obj");
-	PdtState state("../Captures/generated/300 poses", hand);
+	PdtState state("../Captures/generated/300 poses fine", hand);
 
     fmat joints;
     joints << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0;

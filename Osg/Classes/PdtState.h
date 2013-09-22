@@ -6,12 +6,15 @@
 
 struct PdtState : Pdt {
 	PdtState(const char* path, Node* mesh) : Pdt(path) {
+		Uniform *scale = new Uniform(Uniform::FLOAT, "transferScalars", numScalars);
+		scale->setArray(new FloatArray(scalars, scalars + numScalars));
+
 		radiance = new Uniform(Uniform::FLOAT_VEC3, "environmentTransfer", numSH);
-    	transfer = new Uniform(Uniform::FLOAT, "transferCoefs", weights.n_cols);
+    	transfer = new Uniform(Uniform::FLOAT, "transferCoefs", weights.n_cols+1);
 		cluster = -1;
 
 		state = mesh->getOrCreateStateSet();
-		state->addUniform(new Uniform("transferMinima", minima));
+		state->addUniform(scale);
 		state->addUniform(radiance);
 		state->addUniform(transfer);
 
@@ -33,8 +36,9 @@ struct PdtState : Pdt {
 		reducePose(&joints);
 		RunRBF(&joints, jointSamples, weights, 2);
 
-		float* coefs = joints.memptr();
-		transfer->setArray(new FloatArray(coefs, coefs + joints.n_elem));
+		FloatArray* coefs = new FloatArray(joints.memptr() - 1, joints.memptr() + joints.n_elem);
+		coefs->at(0) = 1;
+		transfer->setArray(coefs);
 	}
 
 	void reducePose(fmat* joints) {

@@ -1,4 +1,4 @@
-function pdt(folder, numClusterRange, numJointCoefs, numTransferCoefs, mapsSize)
+function pdt(folder, numJointCoefs, mapSize)
     Joints = readBvhQuaternions(strcat(folder, '.bvh'));
     Joints = svdStruct(Joints, numJointCoefs);
     
@@ -7,52 +7,39 @@ function pdt(folder, numClusterRange, numJointCoefs, numTransferCoefs, mapsSize)
     writeMatrix(out, Joints.U', 'float32');
     writeMatrix(out, Joints.V, 'float32');
     
-    [Transfer] = transfer(fullfile(folder, '*.transfer'));
-    [Transfer] = svdStruct(Transfer, 15);
-    [Clusters, NumClusters] = recursiveClusters(Transfer.V', numClusterRange, 50);
+    Transfer = transfer(fullfile(folder, '*.transfer'));
+    Transfer = svdStruct(Transfer, 15);
+    W = train_rbf(Joints.V', Transfer.V', Joints.V', 2, 'polyharmonicspline');
     
+    writeMatrix(out, W, 'float32');
+    writeMatrix(out, ones(1, size(Transfer)), 'int32');
+
     Objs = dir(fullfile(folder, '*.obj'));
     Obj = fullfile(folder, Objs(1).name);
+    Maps = transferMaps(Obj, [Transfer.M Transfer.U], mapSize);
+    NumHarmonics = size(Maps');
     
-    SampleTransfer = [];
-    Minima = 0; Maxima = 0;
-    Maps = {};
-
-    for i = 1:NumClusters
-        Poses = Clusters == i;
-        Cluster = svdStruct(Transfer.O(:, Poses), numTransferCoefs);
+    fwrite(out, [1 NumHarmonics], 'int32');
+    
+    for c = 1:NumHarmonics
+        totalSize = mapSize*4;
+        image = zeros(totalSize, totalSize, 3);
+        index = 1;
         
-        Maps{i} = transferMaps(Obj, [Cluster.M Cluster.U], mapsSize);
-        SampleTransfer(:,Poses) = Cluster.V;
-        NumMaps = size(Maps{i});
-        
-        for a = 1:NumMaps
-            for b = 1:size(Maps{i}{a}')
-               Minima = min(Minima, min(min(min(Maps{i}{a}{b}))));
-               Maxima = max(Maxima, max(max(max(Maps{i}{a}{b}))));
+        for y = 1:mapSize:totalSize
+            for x = 1:mapSize:totalSize
+                vector = Maps{c}{index};
+                minima = min(vector(:))
+                scale = max(vector(:)) - minima
+       
+                fwrite(out, [minima scale], 'float32');
+                image(x:x+mapSize-1, y:y+mapSize-1, :) = (vector - minima) / scale;
+                index = index + 1;
             end
         end
-    end
-    
-    for i = 1:NumClusters
-        for c = 1:NumMaps
-           limit = mapsSize * 2;
-           half = mapsSize + 1;
            
-           image = zeros(limit, limit, 3);
-           image(1:mapsSize, 1:mapsSize, :) = Maps{i}{c}{1};
-           image(half:limit, 1:mapsSize, :) = Maps{i}{c}{2};
-           image(1:mapsSize, half:limit, :) = Maps{i}{c}{3};
-           image(half:limit, half:limit, :) = Maps{i}{c}{4};
-           
-           imwrite(image - Minima, strcat(folder, num2str(i-1), '_', num2str(c-1), '.png'));
-        end
+       imwrite(image, strcat(folder, num2str(0), '_', num2str(c-1), '.png'), 'BitDepth', 16);
     end
-    
-    writeMatrix(out, SampleTransfer, 'float32');
-    writeMatrix(out, Clusters - 1, 'int32');
-    
-    fwrite(out, Minima, 'float32');
-    fwrite(out, [NumClusters NumMaps], 'int32');
+   
     fclose(out);
 end
