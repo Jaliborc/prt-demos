@@ -7,8 +7,7 @@
 #define FAR 40.0
 
 uniform sampler2D diffuse;
-uniform sampler2D reflected;
-uniform sampler2D depth;
+uniform sampler2D specular;
 
 const vec4 kernel[25] = vec4[25] (
     vec4(0.530605, 0.613514, 0.739601, 0),
@@ -38,26 +37,22 @@ const vec4 kernel[25] = vec4[25] (
     vec4(0.000973794, 1.11862e-005, 9.43437e-007, 3)
 );
 
-float LinearDepth(vec2 uv) {
-    return (2.0 * NEAR) / (FAR + NEAR - texture2D(depth, uv).r * (FAR - NEAR));   
-}
-
 vec4 SSSS(vec4 color, vec2 direction) {
     vec2 uv = vec2(gl_TexCoord[0]);
     vec4 blurred = color;
     blurred.rgb *= kernel[0].rgb;
+    blurred.a = 1;
 
-    float d = LinearDepth(uv);
-    float scale = PROJECTION_DISTANCE / d;
-    vec2 off = scale * WIDTH * direction * color.a / 3.0;
+    float depth = color.a;
+    float scale = PROJECTION_DISTANCE / depth;
+    vec2 off = scale * WIDTH * direction / 3.0;
 
     for (int i = 1; i < 25; i++) {
-        vec2 sample = uv + kernel[i].a * off;
-        float amount = clamp(PROJECTION_SCALE * abs(d - LinearDepth(sample)), 0.0, 1.0);
+        vec4 sample = texture2D(diffuse, uv + kernel[i].a * off);
+        float amount = clamp(PROJECTION_SCALE * abs(depth - sample.a), 0.0, 1.0);
 
-        vec4 s_color = texture2D(diffuse, sample);
-        s_color.rgb = mix(s_color.rgb, color.rgb, amount);
-        blurred.rgb += kernel[i].rgb * s_color.rgb;
+        sample.rgb = mix(sample.rgb, color.rgb, amount);
+        blurred.rgb += kernel[i].rgb * sample.rgb;
     }
 
     return blurred;
@@ -66,7 +61,7 @@ vec4 SSSS(vec4 color, vec2 direction) {
 void main() {
     vec2 uv = vec2(gl_TexCoord[0]);
     vec4 d = texture2D(diffuse, uv);
-    vec4 r = texture2D(reflected, uv);
+    vec4 s = texture2D(specular, uv);
 
-    gl_FragColor = r + SSSS(SSSS(d, vec2(1, 0)), vec2(0, 1));
+    gl_FragColor = s + SSSS(SSSS(d, vec2(1, 0)), vec2(0, 1));
 }

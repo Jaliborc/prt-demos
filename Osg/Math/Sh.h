@@ -41,23 +41,27 @@ Vec3 dominantSHColor(Vec3Array* coefs, Vec3& w) {
 		coefs->at(i) -= color * y[i] * SH_SCALE;
 
 	return color;
-} 
+}
 
-Vec3Array* RotateSH(Vec3 angle, Vec3Array* coefs) {
-	ShWigner D = shNewWigner(3);
-	shEvalWignerYZ(D, angle.y(), angle.z(), 3);
-    shPreMultiplyByRZ(D, angle.x(), 3);
+Vec3Array* rotateSH(Matrixf &rotation, Vec3Array *coefs) {
+	float* R = (float*) &rotation;
+	ShWigner D = shNewWigner(2);
+    shRotToWigner(R, D, 2);
 
     Vec3Array *out = new Vec3Array(coefs->size());
 
-	for (int l = 0; l <= 3; l++) {
+    for (int l = 0; l <= 2; l++) {
         for (int m = -l; m <= l; m++) {
-			int index = l * (l+1) + m;
-			
+			int single_index = l * (l+1) + m;
             for (int n = -l; n <= l; n++)
-                out->at(index) += coefs->at(l * (l+1) + n) * D[l][m][n];
+                out->at(single_index) += coefs->at(l * (l+1) + n) * D[l][m][n];
         }
-	}
+    }
 
 	return out;
+}
+
+void flipZonalSH(Vec3Array *coefs) {
+	for (int l = 0; l <= 2; l++)
+		coefs->at(l * (l+1)) *= -1;
 }

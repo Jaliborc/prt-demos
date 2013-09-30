@@ -35,6 +35,8 @@ struct Pdt {
 		readMatrix<int>(&clusters, stream);
 		stream.read((char*) &numClusters, sizeof(int) * 3);
 
+		numSH = 4; // !!!!!
+
 		numMaps = numClusters * numSH;
 		numScalars = numMaps * (weights.n_cols+1) * 2;
 		textures = new ref_ptr<Texture2D>[numMaps];
@@ -43,7 +45,7 @@ struct Pdt {
 		for (int i = 0; i < numClusters; i++)
 			for (int c = 0; c < numSH; c++) {
 				ostringstream name;
-				name << path << i << "_" << c << ".png";
+				name << path << i << "_" << c << ".jpg";
 
 				int index = i * numSH + c;
 				textures[index] = new Texture2D;

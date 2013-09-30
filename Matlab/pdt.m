@@ -38,7 +38,7 @@ function pdt(folder, numJointCoefs, mapSize)
             end
         end
            
-       imwrite(image, strcat(folder, num2str(0), '_', num2str(c-1), '.png'), 'BitDepth', 16);
+       imwrite(image, strcat(folder, num2str(0), '_', num2str(c-1), '.jpg'));
     end
    
     fclose(out);

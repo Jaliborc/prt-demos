@@ -1,3 +1,6 @@
+#include <winsock2.h>
+#include <windows.h>
+
 #include <osg/TexEnv>
 #include <osgGA/NodeTrackerManipulator>
 #include <osgViewer/Viewer>
@@ -6,8 +9,7 @@
 #include <ShapeHandFrame.h>
 #include <ShapeHandClient.h>
 
-#include "Classes/PdtState.h"
-#include "Classes/MultipassEffects.h"
+#include "Classes/DefaultSetup.h"
 
 using namespace osgViewer;
 using namespace osgGA;
@@ -54,14 +56,6 @@ public:
 		hand->setBoneRotation("lPinky1", Quat(joints.finger[4][0][1], joints.finger[4][0][2], joints.finger[4][0][3], joints.finger[4][0][0]));
 		hand->setBoneRotation("lPinky2", Quat(joints.finger[4][1][1], joints.finger[4][1][2], joints.finger[4][1][3], joints.finger[4][1][0]));
 		hand->setBoneRotation("lPinky3", Quat(joints.finger[4][2][1], joints.finger[4][2][2], joints.finger[4][2][3], joints.finger[4][2][0]));
-		
-		cout << joints.finger[0][0][0] << ", " << joints.finger[0][0][1] << ", " << joints.finger[0][0][2] <<  ", " << joints.finger[0][0][3] << "\n";
-		joints.finger[0][0][2] *= -1;
-		for (int i=0, k=0; i < 16; i++) {
-			qarray[i] = Quat(joints.hand[k+1], joints.hand[k+2], joints.hand[k+3], joints.hand[k]);
-			k += 4;
-		}
-
 	}
 
 	void UpdateColor() {
@@ -75,7 +69,7 @@ public:
 				quats(i+3) *= -1;
 			}
 
-		state->update(qarray);
+		state->updatePose(quats);
 	}
 
 protected:
@@ -83,41 +77,16 @@ protected:
     ShapeHandClient *client;
     ShapeHandFrame joints;
 	PdtState* state;
-	Quat qarray[16];
 };
 
-int main( int argc, char** argv ) {
-    // Scene
-	Group* scene = new Group;
-    VisualHandModel hand("../Models/hand/hand.fbx");
-	Environment environment("../Ambients/Museum.tga");
-	PdtState pdt("../Captures/generated/quaternions", hand.getSkeleton(), environment);
+int main() {
+	VisualHandModel hand("../Models/hand/hand.fbx");
+	Node* mesh = hand.getSkeleton();
+	PdtState state("../Captures/generated/300 poses fine", mesh);
 
-	scene->addChild(hand.getSkeleton());
-	scene->addChild(environment.background);
-
-	// Shading
-    Program *program = new Program;
-	program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/pdt.frag"));
-	program->addShader(osgDB::readShaderFile(Shader::FRAGMENT, "Shaders/pdtSimple.frag"));
-
-	StateSet* state = hand.getSkeleton()->getOrCreateStateSet();
-	state->setAttributeAndModes(program, StateAttribute::ON);
-
-    // Interface
 	ShapeHandClient *handClient = new ShapeHandClient(10981);
     if (handClient->connect())
-        scene->setUpdateCallback(new HandUpdater(handClient, &hand, &pdt));
+        mesh->setUpdateCallback(new HandUpdater(handClient, &hand, &state));
 
-	NodeTrackerManipulator* manipulator = new NodeTrackerManipulator;
-	manipulator->setNode(hand.getSkeleton());
-
-    Viewer viewer;
-	viewer.setCameraManipulator(manipulator);
-    viewer.getCamera()->setComputeNearFarMode(osg::CullSettings::DO_NOT_COMPUTE_NEAR_FAR);
-    viewer.setUpViewInWindow(400, 200, 712, 712);
-    viewer.setSceneData(scene);
-	viewer.realize();
-    manipulator->setDistance(80);
-    return viewer.run();
+    return DefaultSetup(mesh, state);
 }

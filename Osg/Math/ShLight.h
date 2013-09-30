@@ -210,6 +210,7 @@ extern "C" {
     ShWigner shNewWigner(int lMax);
     ShWigner shDestroyWigner(ShWigner wigner);
     void shRotToWigner(const float R[16], ShWigner wignerD, const int lMax);
+    void shEulerToWigner(EulerAngles &angles, ShWigner, const int);
     void shEvalWignerYZ(ShWigner D, float beta, float gamm, int lMax);
     void shPreMultiplyByRZ(ShWigner D, float alpha, int lMax);
 

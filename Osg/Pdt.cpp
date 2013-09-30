@@ -5,6 +5,10 @@
 
 int main() {
 	Node *hand = osgDB::readNodeFile("../Captures/generated/300 poses/poses 100.0001.obj");
+	PositionAttitudeTransform *transform = new PositionAttitudeTransform;
+    transform->setAttitude(Vec4(-1, 0, 0, 1));
+    transform->addChild(hand);
+
 	PdtState state("../Captures/generated/300 poses fine", hand);
 
     fmat joints;
@@ -12,5 +16,5 @@ int main() {
     joints = joints.t();
     state.updatePose(joints);
 
-    return DefaultSetup(hand, state);
+    return DefaultSetup(transform, state);
 }

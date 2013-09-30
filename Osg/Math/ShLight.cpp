@@ -816,6 +816,12 @@ void shRotToWigner(const float R[16], ShWigner wignerD, const int lMax) {
     return;
 }
 
+void shEulerToWigner(EulerAngles &euler, ShWigner wignerD, const int lMax) {
+    if (lMax > maxDegree) shUpdateMaxDegree(lMax);
+    shEvalWignerYZ(wignerD, euler.beta, euler.gamma, lMax);
+    shPreMultiplyByRZ(wignerD, euler.alpha, lMax);
+}
+
 void shRotateZhCoeffs(vector3 u, const int lMax, Zh a, Sh aprime){
     int l, m;
 	// Evaluate basis functions in given direction
