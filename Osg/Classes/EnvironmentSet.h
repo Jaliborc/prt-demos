@@ -47,6 +47,7 @@ struct EnvironmentSet {
 		StateSet* state = background->getOrCreateStateSet();
 		state->setAttribute(new Material);
 		state->setTextureAttributeAndModes(0, texture, StateAttribute::ON);
+		state->setMode(GL_DEPTH_TEST, StateAttribute::OFF); 
 		state->setMode(GL_LIGHTING, StateAttribute::OFF);
 	}
 

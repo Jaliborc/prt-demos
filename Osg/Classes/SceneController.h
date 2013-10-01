@@ -50,7 +50,7 @@ protected:
             flipZonalSH(radiance);
 
             transform->setAttitude(Quat(rotation, Vec3(0, 0, 1)));
-            state->updateScene(radiance);
+            //state->updateScene(radiance);
         }
     }
 
