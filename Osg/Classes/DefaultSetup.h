@@ -4,8 +4,8 @@
 #include <osgGA/NodeTrackerManipulator>
 #include <osgViewer/Viewer>
 
-#include "Classes/SceneController.h"
-#include "Classes/EnvironmentSet.h"
+#include "SceneController.h"
+#include "EnvironmentSet.h"
 
 using namespace osgShadow;
 using namespace osgViewer;
@@ -31,8 +31,8 @@ Camera* createPreCam(Camera::BufferComponent buffer, Texture* tex) {
     camera->setRenderOrder(Camera::PRE_RENDER);
 
     if (tex) {
-        camera->setViewport( 0, 0, tex->getTextureWidth(), tex->getTextureHeight() );
-        camera->attach( buffer, tex );
+        camera->setViewport(0, 0, tex->getTextureWidth(), tex->getTextureHeight());
+        camera->attach(buffer, tex);
     }
     
     return camera.release();
@@ -63,28 +63,19 @@ Geode* createScreenQuad(float width, float height, float scale) {
     return quad.release();
 }
 
-int main() {
+int DefaultSetup(Node *hand, PdtState &state) {
 	// Scene
 	Group* scene = new ShadowedScene(new SoftShadowMap);
-	Node *hand = osgDB::readNodeFile("../Captures/generated/300 poses/poses 100.0001.obj");
-
 	PositionAttitudeTransform *transform = new PositionAttitudeTransform;
     transform->setPosition(Vec3(0, 0, -10));
     transform->addChild(hand);
-
-	PdtState state("../Captures/generated/300 poses fine", transform);
 
 	EnvironmentSet environments;
 	environments.add("../Ambients/Museum.tga");
     environments.add("../Ambients/Street.tga");
     environments.add("../Ambients/Uffizi Gallery.tga");
+    environments.add("../Ambients/1 1.tga");
 	environments.show(0);
-
-	fmat joints;
-    joints << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0 << 1 << 0 << 0 << 0;
-    joints = joints.t();
-    state.updatePose(joints);
-    state.updateScene(environments.ambient);
 
 	scene->addChild(environments.source);
 	scene->addChild(transform);
@@ -118,13 +109,13 @@ int main() {
     mainState->setAttributeAndModes(material, StateAttribute::MATERIAL);
     mainState->setAttributeAndModes(mainProg, StateAttribute::ON|StateAttribute::OVERRIDE);
     mainState->setTextureAttributeAndModes(0, normals);
-    mainState->setTextureAttributeAndModes(3, specular);
+    mainState->setTextureAttributeAndModes(3, specularity);
     mainState->addUniform(new Uniform("normals", 0));
     mainState->addUniform(new Uniform("specularity", 3));
 
     // Final
 	Camera *finalCam = createPostCam(0.0, 1.0, 0.0, 1.0);
-    finalCam->addChild( createScreenQuad(0.5f, 1.0f, 1.0f) );
+    finalCam->addChild( createScreenQuad(1.0f, 1.0f, 1.0f) );
 
  	Program *finalProg = new Program;
  	finalProg->addShader(readShaderFile(Shader::VERTEX, "Shaders/ssss.vert"));

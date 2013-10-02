@@ -15,7 +15,8 @@ float toGrayscale(Vec3& color) {
 }
 
 Vec3 dominantSHDirection(Vec3Array* coefs) {
-	Vec3 direction = Vec3(-toGrayscale(coefs->at(3)), toGrayscale(coefs->at(2)), -toGrayscale(coefs->at(1)));
+	//Vec3 direction = Vec3(-toGrayscale(coefs->at(3)), toGrayscale(coefs->at(2)), -toGrayscale(coefs->at(1)));
+	Vec3 direction = Vec3(-toGrayscale(coefs->at(3)), -toGrayscale(coefs->at(1)), toGrayscale(coefs->at(2)));
 	direction.normalize();
 
 	return direction;
@@ -62,6 +63,6 @@ Vec3Array* rotateSH(Matrixf &rotation, Vec3Array *coefs) {
 }
 
 void flipZonalSH(Vec3Array *coefs) {
-	for (int l = 0; l <= 2; l++)
+	for (int l = 1; l <= 2; l++)
 		coefs->at(l * (l+1)) *= -1;
 }

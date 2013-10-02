@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"osg",
+				"osgShadow"
+			],
+			[
 				"norm",
 				"normalize"
 			],
@@ -50,10 +54,6 @@
 			[
 				"re",
 				"reduceJoints"
-			],
-			[
-				"osg",
-				"osgUtil"
 			],
 			[
 				"tr",
@@ -244,18 +244,34 @@
 	"buffers":
 	[
 		{
-			"file": "Classes/DefaultSetup.h",
+			"file": "Test.cpp",
 			"settings":
 			{
-				"buffer_size": 1411,
+				"buffer_size": 806,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Classes/MultipassEffects.h",
+			"file": "Shaders/main.frag",
 			"settings":
 			{
-				"buffer_size": 3233,
+				"buffer_size": 840,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Classes/EnvironmentSet.h",
+			"settings":
+			{
+				"buffer_size": 2058,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Math/Sh.h",
+			"settings":
+			{
+				"buffer_size": 1583,
 				"line_ending": "Unix"
 			}
 		},
@@ -263,15 +279,7 @@
 			"file": "Classes/SceneController.h",
 			"settings":
 			{
-				"buffer_size": 2117,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "SConstruct",
-			"settings":
-			{
-				"buffer_size": 246,
+				"buffer_size": 2047,
 				"line_ending": "Unix"
 			}
 		}
@@ -352,21 +360,21 @@
 	},
 	"file_history":
 	[
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/SceneController.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test1.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Test.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test1.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test2.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/SceneController.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/simple.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/ShLight.h",
@@ -565,6 +573,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pow",
+			"transform",
+			"tranform",
+			"specularity",
 			"state",
 			"hand",
 			"hand->",
@@ -688,11 +700,7 @@
 			"arma::",
 			"total",
 			"Vx/",
-			"ContactVisualizer",
-			"unordered_map",
-			"MASK_2D",
-			"Notebook",
-			"class Notebook: public osgWidget::Box {\ncallbackTabPressed"
+			"ContactVisualizer"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -742,18 +750,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Classes/DefaultSetup.h",
+					"file": "Test.cpp",
 					"settings":
 					{
-						"buffer_size": 1411,
+						"buffer_size": 806,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								316,
-								316
+								114,
+								114
 							]
 						],
 						"settings":
@@ -770,46 +778,97 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Classes/MultipassEffects.h",
+					"file": "Shaders/main.frag",
 					"settings":
 					{
-						"buffer_size": 3233,
+						"buffer_size": 840,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2409,
-								2409
+								801,
+								801
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 509.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "Classes/SceneController.h",
+					"file": "Classes/EnvironmentSet.h",
 					"settings":
 					{
-						"buffer_size": 2117,
+						"buffer_size": 2058,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1892,
-								1892
+								256,
+								278
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Math/Sh.h",
+					"settings":
+					{
+						"buffer_size": 1583,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								335,
+								335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Classes/SceneController.h",
+					"settings":
+					{
+						"buffer_size": 2047,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1534,
+								1534
 							]
 						],
 						"settings":
@@ -819,33 +878,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 164.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "SConstruct",
-					"settings":
-					{
-						"buffer_size": 246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								217,
-								217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 142.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -899,12 +932,16 @@
 		"selected_items":
 		[
 			[
-				"main",
-				"Osg/Shaders/main.frag"
-			],
-			[
 				"scene",
 				"Osg/Classes/SceneController.h"
+			],
+			[
+				"defa",
+				"Osg/Classes/DefaultSetup.h"
+			],
+			[
+				"main",
+				"Osg/Shaders/main.frag"
 			],
 			[
 				"shlight",
@@ -1405,10 +1442,6 @@
 			[
 				"ability",
 				"PetTracker/Combat/AbilityButton.lua"
-			],
-			[
-				"petbattle.lua",
-				"Source/AddOns/Blizzard_PetBattleUI/Blizzard_PetBattleUI.lua"
 			]
 		],
 		"width": 0.0

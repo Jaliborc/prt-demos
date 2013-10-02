@@ -10,6 +10,7 @@
 #include <osgDB/ReadFile>
 
 #include "../Math/Sh.h"
+#define Environment_Correction Matrixf::rotate(Vec3(0, 1, 0), Vec3(0, 0, 1))
 
 struct Environment {
 	Environment(const string& imageFile) {
@@ -23,6 +24,7 @@ struct Environment {
 		image = osgDB::readImageFile(imageFile);
 		direction = dominantSHDirection(ambient);
 		color = dominantSHColor(ambient, direction);
+		direction = Matrixf::transform3x3(direction, Environment_Correction);
 	}
 
 	ref_ptr<Image> image;

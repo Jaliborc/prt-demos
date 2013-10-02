@@ -44,13 +44,12 @@ protected:
             rotation += direction;
             last = now;
 
-            Matrixf correction = Matrixf::rotate(Vec3(0, 1, 0), Vec3(0, 0, 1));
-            Matrixf rotate = Matrixf::rotate(-rotation, Vec3(0, 0, 1)) * correction;
+            Matrixf rotate = Matrixf::rotate(-rotation, Vec3(0, 0, 1)) * Environment_Correction;
             Vec3Array *radiance = rotateSH(rotate, environments->ambient);
             flipZonalSH(radiance);
 
             transform->setAttitude(Quat(rotation, Vec3(0, 0, 1)));
-            //state->updateScene(radiance);
+            state->updateScene(radiance);
         }
     }
 
