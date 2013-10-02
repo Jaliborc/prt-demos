@@ -14,7 +14,7 @@ using namespace osgGA;
 
 Texture* createFloatTexture() {
     ref_ptr<Texture2D> texture = new Texture2D;
-    texture->setTextureSize(1024, 1024);
+    texture->setTextureSize(1440, 900);
     texture->setInternalFormat(GL_RGBA16F_ARB);
     texture->setSourceFormat(GL_RGBA);
     texture->setSourceType(GL_FLOAT);
