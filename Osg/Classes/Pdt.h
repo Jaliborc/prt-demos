@@ -35,7 +35,7 @@ struct Pdt {
 		readMatrix<int>(&clusters, stream);
 		stream.read((char*) &numClusters, sizeof(int) * 3);
 
-		numSH = 4; // !!!!!
+		numSH = 1; // !!!!! FOR USE ON JOAO'S COMPUTER ONLY. REMOVE FOR USE IN THE LAB !!!!!
 
 		numMaps = numClusters * numSH;
 		numScalars = numMaps * (weights.n_cols+1) * 2;

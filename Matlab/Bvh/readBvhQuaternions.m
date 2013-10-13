@@ -1,4 +1,6 @@
 function quats = readBvhQuaternions(file)
+% Opens a set of bvh files and returns the angles for each pose in quaternion form.
+
     euler = readBvh(file);
     quats = [];
     

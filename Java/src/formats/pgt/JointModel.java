@@ -23,8 +23,11 @@ public class JointModel extends Model {
 		stream.close();
 	}
 	
-	public void render(int pose, int harmonic, float[] radiance) {
+	public void render(int pose, int harmonic, int numBands, float[] radiance) {
 		int j = (harmonic != 0 ? harmonic - 1 : 0) * 3, i = 0;
+		int numHarmonics = numBands * numBands * 3;
+		int hiddenHarmonics = numHarmonics() - numHarmonics;
+		
 		float[] positions = geometry.get(pose);
 		float[] colors = transfer.get(pose);
 		
@@ -32,13 +35,15 @@ public class JointModel extends Model {
 			vertex.set(positions[i++], positions[i++], positions[i++]);
 			vertex.r = 0; vertex.g = 0; vertex.b = 0;
 			
-			if (harmonic == 0)
-				for (int n = 0; n < numHarmonics();) {
+			if (harmonic == 0) {
+				for (int n = 0; n < numHarmonics;) {
 					vertex.r += colors[j++] * radiance[n++];
 					vertex.g += colors[j++] * radiance[n++];
 					vertex.b += colors[j++] * radiance[n++];
 				}
-			else {
+			
+				j += hiddenHarmonics;
+			} else {
 				float color = colors[j];
 				vertex.r = -color;
 				vertex.b = color;

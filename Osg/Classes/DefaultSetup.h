@@ -95,7 +95,7 @@ int DefaultSetup(Node *hand, PdtState &state) {
     specularity->setImage(readImageFile("../Models/hand/specular.png"));
 
     Material* material = new Material;
-    material->setSpecular(Material::FRONT, Vec4(.5, .5, .5, 1));
+    //material->setSpecular(Material::FRONT, Vec4(.5, .5, .5, 1));
     material->setShininess(Material::FRONT, 4.0f);
 
     Program *mainProg = new Program;
@@ -138,7 +138,7 @@ int DefaultSetup(Node *hand, PdtState &state) {
     Viewer viewer;
     
     viewer.getCamera()->setComputeNearFarMode(CullSettings::DO_NOT_COMPUTE_NEAR_FAR);
-    viewer.addEventHandler(new SceneController(transform, &environments, &state)); 
+    viewer.addEventHandler(new SceneController(transform, &environments, &state, material)); 
     viewer.setCameraManipulator(manipulator);
     viewer.setSceneData(root);
     viewer.realize();

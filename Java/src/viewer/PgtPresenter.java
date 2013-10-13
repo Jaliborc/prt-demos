@@ -30,7 +30,7 @@ class PgtPresenter extends AnimatedPresenter {
 	public void render(int pose) {
 		model.geometry.rigor = geometryRigor.getValue();
 		model.transfer.rigor = transferRigor.getValue();
-		model.render(pose, harmonic.getValue(), scene.radiance);
+		model.render(pose, harmonic.getValue(), numBands.getValue(), scene.radiance);
 	}
 	
 	public void draw() throws Exception {

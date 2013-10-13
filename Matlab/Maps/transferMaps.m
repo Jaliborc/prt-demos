@@ -1,12 +1,10 @@
 function [maps, numCoefs] = transferMaps(objFile, transfers, width)
-    [vertices, faces, coords] = geometry(objFile);
-    numCoefs = int32(size(transfers) / size(vertices));
-    numValues = numCoefs * 3;
-   
-    xy = coords(:, faces(2:2:end));
-    x = xy(1,:); y = xy(2,:); 
-    uv = 1 - linspace(0, 1, width);
+    [v, x, y] = coords(objFile);
     
+    numValues = int32(size(transfers, 1) / max(v));
+    numCoefs = int32(numValues / 3);
+    
+    uv = 1 - linspace(0, 1, width);
     image = zeros(width, width, 3);
     maps = {};
         
@@ -16,8 +14,7 @@ function [maps, numCoefs] = transferMaps(objFile, transfers, width)
         for p = 1:size(transfers, 2)
             for i = 1:3
                 coef = transfers(i + c*3 - 3: numValues : end, p);
-                values = coef(faces(1:2:end));
-                f = scatteredInterpolant(x', y', values, 'linear', 'nearest');
+                f = scatteredInterpolant(x', y', coef(v), 'linear', 'nearest');
 
                 for a = 1:width
                     for b = 1:width

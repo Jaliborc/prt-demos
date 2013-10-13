@@ -37,7 +37,7 @@ class PgstPresenter extends AnimatedPresenter {
 			model.bands[i].rigor = transferRigor[i].getValue();
 		
 		model.geometry.rigor = geometryRigor.getValue();
-		model.render(pose, harmonic.getValue(), scene.radiance);
+		model.render(pose, harmonic.getValue(), numBands.getValue(), scene.radiance);
 	}
 	
 	public void draw() throws Exception {

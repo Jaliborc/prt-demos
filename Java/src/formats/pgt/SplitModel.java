@@ -25,7 +25,7 @@ public class SplitModel extends Model {
 		stream.close();
 	}
 	
-	public void render(int pose, int harmonic, float[] radiance) {
+	public void render(int pose, int harmonic, int numBands, float[] radiance) {
 		float[] positions = geometry.get(pose);
 		int i = 0;
 		
