@@ -45,8 +45,6 @@ protected:
         } else if (type == GUIEventAdapter::KEYUP)
             if (key == GUIEventAdapter::KEY_Left || key == GUIEventAdapter::KEY_Right)
                 direction = 0;
-
-        cout << "Specular: " << specular << ", Diffuse: " << diffuse << "\n";
     }
 
     void onFrame() {
