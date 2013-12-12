@@ -18,7 +18,6 @@ public:
        		if (frame == frames.n_cols)
        			frame = 0;
 
-			cout << frame << endl;
        		method->updatePose(frames.col(frame));
 		}
 
