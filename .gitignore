@@ -2,19 +2,13 @@
 *.svn-base
 .DS_Store
 
-*.tga
-*.png
-*.jpg
-*.hdr
 *.mip
-
-*.radiance
 *.visibility
 *.transfer
+*.pbrt
 
 *.blend
 *.obj
-*.pbrt
 
 *.pgt
 *.pgst
@@ -22,12 +16,14 @@
 *.mpdt
 *.pdt
 *.npgt
-*.o
 
+*.o
 *.sdf
 
+Models/hand/1000poses/
+Models/hand/300 poses/
 Pbrt/scenes/
 Java/bin/
-archive/
+
 Tasks
-Osg/Media
+archive/
