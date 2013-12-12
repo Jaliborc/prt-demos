@@ -1,7 +1,7 @@
 uniform vec3 environmentTransfer[9];
 uniform float transferCoefs[16];
 
-uniform float transferScalars[144];
+uniform float transferScalars[288];
 uniform sampler2D transfer0;
 uniform sampler2D transfer1;
 uniform sampler2D transfer2;

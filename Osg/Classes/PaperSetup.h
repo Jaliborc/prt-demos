@@ -76,6 +76,9 @@ int PaperSetup(Node* hand, PdtState &state) {
 	environments.add("../Ambients/Museum.tga");
 	environments.add("../Ambients/Street.tga");
 	environments.add("../Ambients/Uffizi Gallery.tga");
+	environments.add("../Ambients/1 1.tga");
+	environments.add("../Ambients/2 1.tga");
+	environments.add("../Ambients/3 1.tga");
 
 	scene->addChild(environments.source);
 	scene->addChild(transform);
