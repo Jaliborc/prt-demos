@@ -28,15 +28,17 @@ struct Environment {
 				ambient->push_back(color);
 
 			if (getline(stream, line)) {
-				istringstream parser(line);
-				parser >> direction.x();
-				parser >> direction.y();
-				parser >> direction.z();
-			} else
-				direction = dominantSHDirection(ambient);
+				if (getline(stream, line)) {
+					istringstream parser(line);
+					parser >> direction.x();
+					parser >> direction.y();
+					parser >> direction.z();
+				} else
+					direction = dominantSHDirection(ambient);
 
-			color = dominantSHColor(ambient, direction);
-			direction = Matrixf::transform3x3(direction, Environment_Correction);
+				color = dominantSHColor(ambient, direction);
+				direction = Matrixf::transform3x3(direction, Environment_Correction);
+			}
 		}
 	}
 
