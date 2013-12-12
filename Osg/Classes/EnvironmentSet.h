@@ -33,8 +33,9 @@ struct Environment {
 					parser >> direction.x();
 					parser >> direction.y();
 					parser >> direction.z();
-				} else
+				} else {
 					direction = dominantSHDirection(ambient);
+				}
 
 				color = dominantSHColor(ambient, direction);
 				direction = Matrixf::transform3x3(direction, Environment_Correction);

@@ -14,15 +14,20 @@
 *.pgst
 *.pgv
 *.mpdt
-*.pdt
 *.npgt
 
 *.o
 *.sdf
+*.opensdf
 
 Models/hand/1000poses/
 Models/hand/300 poses/
 Pbrt/scenes/
+
+ipch/
+Release/OsgViewer.pdb
+Osg/Release/
+Osg/Debug/
 Java/bin/
 
 Tasks
