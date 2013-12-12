@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Update",
+				"UpdateMethod"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
 				"KEY",
 				"KEY_Left"
 			],
@@ -247,14 +255,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Classes/SceneController.h",
-			"settings":
-			{
-				"buffer_size": 2698,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -332,18 +332,30 @@
 	},
 	"file_history":
 	[
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/SceneController.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Bulshit.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/DefaultSetup.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/QuatLoader.h",
+		"/Users/Jaliborc/Downloads/Spice_and_Wolf_(2008)_[1080p,BluRay,x264]_-_THORA/Spice_and_Wolf_(2008)_[1080p,BluRay,x264]_-_THORA.nfo",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Glove_or_Recording.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/PdtState.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Glove.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/UpdateMethod.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pgt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/QuatsLoader.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pdt.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Matrix.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pgt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/NewPdt.cpp",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/BvhLoader.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/GloveAnimator.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/HandUpdater.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/SceneController.h",
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/main.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdt.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Math/Sh.h",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Test.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/MultipassEffects.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/test1.frag",
@@ -381,7 +393,6 @@
 		"/Users/Jaliborc/Documents/Research/OpenSceneGraph-3.0.1/src/osg/Quat.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdtMain.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtEffects.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/Pgt.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/pdtSimple.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PdtMain.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/PgtMain.cpp",
@@ -448,18 +459,7 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.vert",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/DeferredTesting.cpp",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/display.frag",
-		"/Users/Jaliborc/Desktop/Shaders/mirror.frag",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgShadow/StandardShadowMap.cpp",
-		"/Users/Jaliborc/Downloads/OpenSceneGraph-3.0.1/src/osgGA/StandardManipulator.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/deferred.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/deferred.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/softShadow.frag",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.glsl",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/default.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/lights.shader",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/directional.frag",
-		"/Users/Jaliborc/Downloads/separable-sss-master/Demo/Shaders/Main.fx"
+		"/Users/Jaliborc/Desktop/Shaders/mirror.frag"
 	],
 	"find":
 	{
@@ -545,6 +545,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"radianceFile",
 			"001",
 			"pow",
 			"transform",
@@ -671,8 +672,7 @@
 			"drawIm",
 			"samples",
 			"arma::",
-			"total",
-			"Vx/"
+			"total"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -717,37 +717,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Classes/SceneController.h",
-					"settings":
-					{
-						"buffer_size": 2698,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1777,
-								1777
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 509.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

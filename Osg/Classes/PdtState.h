@@ -1,17 +1,20 @@
+#ifndef PDT_STATE_H
+#define PDT_STATE_H
+
 #include <osg/StateSet>
 #include <osg/Uniform>
 
 #include "../Math/Rbf.h"
+#include "UpdateMethod.h"
 #include "Pdt.h"
 
-struct PdtState : Pdt {
+struct PdtState : Pdt, UpdateMethod {
 	PdtState(const char* path, Node* mesh) : Pdt(path) {
 		Uniform *scale = new Uniform(Uniform::FLOAT, "transferScalars", numScalars);
 		scale->setArray(new FloatArray(scalars, scalars + numScalars));
 
 		radiance = new Uniform(Uniform::FLOAT_VEC3, "environmentTransfer", numSH);
     	transfer = new Uniform(Uniform::FLOAT, "transferCoefs", weights.n_cols+1);
-		cluster = -1;
 
 		state = mesh->getOrCreateStateSet();
 		state->addUniform(scale);
@@ -32,7 +35,7 @@ struct PdtState : Pdt {
 			radiance->setElement(i, ambient->at(i));
 	}
 
-	void updatePose(fmat& joints) {
+	void updatePose(fmat joints) {
 		reducePose(&joints);
 		RunRBF(&joints, jointSamples, weights, 2);
 
@@ -47,5 +50,6 @@ struct PdtState : Pdt {
 
 	Uniform *transfer, *radiance;
 	StateSet *state;
-	int cluster;
 };
+
+#endif

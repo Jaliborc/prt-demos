@@ -13,18 +13,31 @@
 #define Environment_Correction Matrixf::rotate(Vec3(0, 1, 0), Vec3(0, 0, 1))
 
 struct Environment {
-	Environment(const string& imageFile) {
-		string radianceFile = imageFile.substr(0, imageFile.find_last_of(".")) + ".radiance";
-		std::ifstream stream(radianceFile.c_str());
+	Environment(const string& path) {
 		ambient = new Vec3Array;
+		image = osgDB::readImageFile(path);
 
-		while(stream >> color.x() && stream >> color.y() && stream >> color.z())
-			ambient->push_back(color);
+		string radiancePath = path.substr(0, path.find_last_of(".")) + ".radiance";
+		std::ifstream stream(radiancePath.c_str());
+		string line;
 
-		image = osgDB::readImageFile(imageFile);
-		direction = dominantSHDirection(ambient);
-		color = dominantSHColor(ambient, direction);
-		direction = Matrixf::transform3x3(direction, Environment_Correction);
+		if (getline(stream, line)) {
+			istringstream parser(line);
+
+			while(parser >> color.x() && parser >> color.y() && parser >> color.z())
+				ambient->push_back(color);
+
+			if (getline(stream, line)) {
+				istringstream parser(line);
+				parser >> direction.x();
+				parser >> direction.y();
+				parser >> direction.z();
+			} else
+				direction = dominantSHDirection(ambient);
+
+			color = dominantSHColor(ambient, direction);
+			direction = Matrixf::transform3x3(direction, Environment_Correction);
+		}
 	}
 
 	ref_ptr<Image> image;

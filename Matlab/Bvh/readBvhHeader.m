@@ -1,5 +1,5 @@
 function header = readBvhHeader(file)
-    frewind(file);
+    file = fopen(file);
     lines = textscan(file, '%s', 'delimiter','\n');
     header = '';
     
@@ -13,5 +13,6 @@ function header = readBvhHeader(file)
     end
     
     header = header{1};
+    fclose(file);
 end
 

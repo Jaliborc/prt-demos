@@ -4,15 +4,17 @@
 
 *.tga
 *.png
+*.jpg
+*.hdr
+*.mip
+
 *.radiance
+*.visibility
+*.transfer
 
 *.blend
 *.obj
 *.pbrt
-*.visibility
-*.transfer
-*.jpg
-*.hdr
 
 *.pgt
 *.pgst
@@ -22,8 +24,7 @@
 *.npgt
 *.o
 
-*.bvh
-*.pdt
+*.sdf
 
 Pbrt/scenes/
 Java/bin/

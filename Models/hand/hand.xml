@@ -47,7 +47,7 @@
 		<bsdf type="bump">
 			<bsdf type="diffuse">
 				<texture type="bitmap" name="reflectance">
-					<string name="filename" value="color.png"/>
+					<string name="filename" value="$colorMap"/>
 				</texture>
 			</bsdf>
 

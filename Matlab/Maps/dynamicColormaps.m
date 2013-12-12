@@ -1,4 +1,4 @@
-function dynamicColormaps(destination, source, images, bvh, numPoses)
+function dynamicColormaps(destination, source, images, bvh, poseRange)
     poses = readBvh(bvh);
     base = poses(:,1); % assume we start with homing position
     baseImage = imread(fullfile(source, strcat(images{1}, '.png')));
@@ -18,7 +18,7 @@ function dynamicColormaps(destination, source, images, bvh, numPoses)
         axis{i} = entry;
     end
     
-   for i = 1:numPoses
+   for i = poseRange
        image = baseImage;
         
        for k = 2:size(axis, 2)

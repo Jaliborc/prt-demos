@@ -9,12 +9,14 @@ function quats = readBvhQuaternions(file)
        
        for k = 1:size(joint)
           if joint(k,4) < 0
-              joint(k,:) = joint(k,:) * -1;
+              joint(k,:) = -joint(k,:);
           end
        end
        
        joint = joint';
        quats = [quats; joint(4,:); joint(1,:); joint(3,:); joint(2,:)];
     end
+    
+    quats([7 11 15],:) = -quats([7 11 15],:);
 end
 

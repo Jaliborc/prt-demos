@@ -4,10 +4,10 @@ function [poses, numHarmonics] = transfer(path)
     poses = [];
     
     for i = 1:size(files)
-        numHarmonics = fread(files(i), 1, 'int32');
-        pose = fread(files(i), inf, 'float32');
+        file = fopen(files{i});
+        numHarmonics = fread(file, 1, 'int32');
+        pose = fread(file, inf, 'float32');
         poses = [poses pose];
+        fclose(file);
     end
-    
-    closeFiles(files);
 end

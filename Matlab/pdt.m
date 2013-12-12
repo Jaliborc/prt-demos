@@ -14,26 +14,24 @@ function pdt(folder, numJointCoefs, mapSize)
     writeMatrix(out, W, 'float32');
     writeMatrix(out, ones(1, size(Transfer)), 'int32');
 
-    Objs = dir(fullfile(folder, '*.obj'));
-    Obj = fullfile(folder, Objs(1).name);
-    Maps = transferMaps(Obj, [Transfer.M Transfer.U], mapSize);
-    NumHarmonics = size(Maps');
+    MapData = prepare_transferMaps(fullfile(folder, '*.obj'), [Transfer.M Transfer.U]);
+    fwrite(out, [1 MapData.numCoefs], 'int32');
     
-    fwrite(out, [1 NumHarmonics], 'int32');
-    
-    for c = 1:NumHarmonics
-        totalSize = mapSize*4;
-        image = zeros(totalSize, totalSize, 3);
+    for c = 1:MapData.numCoefs
+        actualSize = mapSize/4;
+        maps = make_transferMaps(MapData, c, actualSize);
+        
+        image = zeros(mapSize, mapSize, 3);
         index = 1;
         
-        for y = 1:mapSize:totalSize
-            for x = 1:mapSize:totalSize
-                vector = Maps{c}{index};
-                minima = min(vector(:))
-                scale = max(vector(:)) - minima
+        for y = 1:actualSize:mapSize
+            for x = 1:actualSize:mapSize
+                vector = maps{index};
+                minima = min(vector(:));
+                scale = max(vector(:)) - minima;
        
                 fwrite(out, [minima scale], 'float32');
-                image(x:x+mapSize-1, y:y+mapSize-1, :) = (vector - minima) / scale;
+                image(x:x+actualSize-1, y:y+actualSize-1, :) = (vector - minima) / scale;
                 index = index + 1;
             end
         end

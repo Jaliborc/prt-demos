@@ -1,26 +1,8 @@
-#include <sstream>
-#include <fstream>
-#include <armadillo>
 #include <limits>
 #include <osgDB/ReadFile>
 #include <osg/Texture2D>
-
-using namespace std;
-using namespace arma;
+#include "../Math/Matrix.h"
 using namespace osg;
-
-template<class type>
-void readMatrix(Mat<type>* target, ifstream& source) {
-	int size[2];
-	source.read((char*) &size, sizeof(int) * 2);
-
-	int total = size[0] * size[1];
-	type* content = new type[total];
-	source.read((char*) content, sizeof(type) * total);
-
-	*target = Mat<type>(content, size[0], size[1]);
-	delete content;
-}
 
 struct Pdt {
 	Pdt(const char* path) {
@@ -34,8 +16,6 @@ struct Pdt {
 		readMatrix<float>(&weights, stream);
 		readMatrix<int>(&clusters, stream);
 		stream.read((char*) &numClusters, sizeof(int) * 3);
-
-		numSH = 1; // !!!!! FOR USE ON JOAO'S COMPUTER ONLY. REMOVE FOR USE IN THE LAB !!!!!
 
 		numMaps = numClusters * numSH;
 		numScalars = numMaps * (weights.n_cols+1) * 2;
