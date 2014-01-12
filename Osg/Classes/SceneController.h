@@ -54,7 +54,7 @@ protected:
             rotation += direction;
             last = now;
 
-            Matrixf rotate = Matrixf::rotate(-rotation, Vec3(0, 0, 1)) * Environment_Correction;
+            Matrixf rotate = Matrixf::rotate(rotation, Vec3(0, 0, 1)) * Environment_Correction;
             Vec3Array *radiance = rotateSH(rotate, environments->ambient);
             flipZonalSH(radiance);
 

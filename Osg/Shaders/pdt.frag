@@ -49,11 +49,11 @@ vec4 ResidualLight() {
 				ShContribution(1, transfer1) +
 				ShContribution(2, transfer2) +
 				ShContribution(3, transfer3) +
-				ShContribution(4, transfer4);/* +
+				ShContribution(4, transfer4) +
 				ShContribution(5, transfer5) +
 				ShContribution(6, transfer6) +
 				ShContribution(7, transfer7) +
-				ShContribution(8, transfer8);*/
+				ShContribution(8, transfer8);
 	
 	return vec4(total, 1);
 }
