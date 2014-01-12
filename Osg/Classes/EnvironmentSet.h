@@ -39,6 +39,9 @@ struct Environment {
 
 				color = dominantSHColor(ambient, direction);
 				direction = Matrixf::transform3x3(direction, Environment_Correction);
+			} else {
+				color = Vec3(0,0,0);
+				direction = Vec3(1,0,0);
 			}
 		}
 	}
@@ -52,7 +55,6 @@ struct EnvironmentSet {
 	EnvironmentSet() {
 		light = new Light;
 	    light->setLightNum(0);
-	   	light->setSpecular(Vec4(1,1,1, 1));
 	    light->setAmbient(Vec4());
 
 	    source = new LightSource;
@@ -78,7 +80,12 @@ struct EnvironmentSet {
 		light->setPosition(Vec4(scene->direction, 0));
 	    light->setDiffuse(Vec4(scene->color, 1));
 	    texture->setImage(scene->image.get());
-	    
+
+		if (scene->color.length2() > 0)
+			light->setSpecular(Vec4(1,1,1, 1));
+		else
+			light->setSpecular(Vec4());
+
 	    ambient = scene->ambient;
 	}
 

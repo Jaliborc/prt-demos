@@ -29,6 +29,18 @@
     <ClCompile Include="Math\ShLight.cpp" />
     <ClCompile Include="Recording.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\constantPdt.frag" />
+    <None Include="Shaders\lights.frag" />
+    <None Include="Shaders\main.frag" />
+    <None Include="Shaders\main.vert" />
+    <None Include="Shaders\pdt.frag" />
+    <None Include="Shaders\pgt.frag" />
+    <None Include="Shaders\shadow.frag" />
+    <None Include="Shaders\simple.frag" />
+    <None Include="Shaders\ssss.frag" />
+    <None Include="Shaders\ssss.vert" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{82D21C18-8489-40C9-982D-1F32B42C98C5}</ProjectGuid>
     <RootNamespace>MyOSGApp</RootNamespace>

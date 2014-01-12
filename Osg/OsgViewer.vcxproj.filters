@@ -63,4 +63,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\ssss.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\ssss.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\simple.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\shadow.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\pgt.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\pdt.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\main.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\main.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\lights.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\constantPdt.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
