@@ -45,15 +45,15 @@ vec3 ShContribution(int index, sampler2D texture) {
 }
 
 vec4 ResidualLight() {
-	vec3 total = ShContribution(0, transfer0) +
-				ShContribution(1, transfer1) +
-				ShContribution(2, transfer2) +
-				ShContribution(3, transfer3) +
-				ShContribution(4, transfer4) +
-				ShContribution(5, transfer5) +
-				ShContribution(6, transfer6) +
-				ShContribution(7, transfer7) +
-				ShContribution(8, transfer8);
+	vec3 total = ShContribution(0, transfer0);
+	total += ShContribution(1, transfer1);
+	total += ShContribution(2, transfer2);
+	total += ShContribution(3, transfer3);
+	total += ShContribution(4, transfer4);
+	total += ShContribution(5, transfer5);
+	total += ShContribution(6, transfer6);
+	total += ShContribution(7, transfer7);
+	total += ShContribution(8, transfer8);
 	
 	return vec4(total, 1);
 }

@@ -30,6 +30,7 @@
     <ClCompile Include="Recording.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Ambients\Museum.radiance" />
     <None Include="Shaders\constantPdt.frag" />
     <None Include="Shaders\lights.frag" />
     <None Include="Shaders\main.frag" />

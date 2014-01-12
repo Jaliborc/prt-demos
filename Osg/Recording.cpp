@@ -10,7 +10,7 @@ int main() {
 	VisualHandModel model("../Models/hand/hand.fbx");
 	Node* hand = model.getSkeleton();
 
-    PdtState state("../Models/hand/1000poses", hand);
+    PdtState state("../Models/hand/1000 poses ld", hand);
 	UpdateMethod *updater = new HandUpdater(&model, &state);
     hand->setUpdateCallback(new QuatLoader("../Captures/restrained paper poses.quat", updater));
    
