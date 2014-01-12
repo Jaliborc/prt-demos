@@ -332,6 +332,8 @@
 	},
 	"file_history":
 	[
+		"/Users/Jaliborc/Desktop/Graduate Application Form.html",
+		"/Users/Jaliborc/Documents/University/Coimbra/Redes/Trabalhos/2/Instruções.txt",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Classes/EnvironmentSet.h",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/SConstruct",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Pdt.cpp",
@@ -457,9 +459,7 @@
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/horizontal.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/firstScatter.frag",
 		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/ssss.vert",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/DeferredTesting.cpp",
-		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/Shaders/display.frag",
-		"/Users/Jaliborc/Desktop/Shaders/mirror.frag"
+		"/Users/Jaliborc/Documents/Research/PRTAnalysis/Osg/DeferredTesting.cpp"
 	],
 	"find":
 	{
