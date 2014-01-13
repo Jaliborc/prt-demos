@@ -86,7 +86,7 @@ struct EnvironmentSet {
 		else
 			light->setSpecular(Vec4());
 
-	    ambient = scene->ambient;
+	    ambient = rotateSH(Environment_Correction, scene->ambient);
 	}
 
 	Vec3Array *ambient;
