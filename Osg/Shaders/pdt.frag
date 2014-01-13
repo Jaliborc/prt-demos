@@ -17,11 +17,9 @@ vec3 ShContribution(int index, sampler2D texture) {
 	vec2 uv1 = uv0 + 0.25;
 	vec2 uv2 = uv0 + 0.5;
 	vec2 uv3 = uv0 + 0.75;
-
 	int s = index * 32;
-	vec3 sum = vec3(0,0,0);
-		
-	sum += transferCoefs[0] * (texture2D(texture, vec2(uv0.x, uv3.y)).rgb * transferScalars[s+1] + transferScalars[s]);
+
+	vec3 sum = transferCoefs[0] * (texture2D(texture, vec2(uv0.x, uv3.y)).rgb * transferScalars[s+1] + transferScalars[s]);
 	sum += transferCoefs[1] * (texture2D(texture, vec2(uv0.x, uv2.y)).rgb * transferScalars[s+3] + transferScalars[s+2]);
 	sum += transferCoefs[2] * (texture2D(texture, vec2(uv0.x, uv1.y)).rgb * transferScalars[s+5] + transferScalars[s+4]);
 	sum += transferCoefs[3] * (texture2D(texture, uv0).rgb * transferScalars[s+7] + transferScalars[s+6]);

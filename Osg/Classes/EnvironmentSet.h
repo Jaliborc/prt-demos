@@ -37,9 +37,10 @@ struct Environment {
 					direction = dominantSHDirection(ambient);
 				}
 
+				cout << direction.x() << ", " << direction.y() << ", " << direction.z() << ", " << "\n";
 				color = dominantSHColor(ambient, direction);
-				direction = Matrixf::transform3x3(direction, Environment_Correction);
-			} else {
+				direction.y() *= -1;
+ 			} else {
 				color = Vec3(0,0,0);
 				direction = Vec3(1,0,0);
 			}

@@ -15,7 +15,6 @@ float toGrayscale(Vec3& color) {
 }
 
 Vec3 dominantSHDirection(Vec3Array* coefs) {
-	//Vec3 direction = Vec3(-toGrayscale(coefs->at(3)), toGrayscale(coefs->at(2)), -toGrayscale(coefs->at(1)));
 	Vec3 direction = Vec3(-toGrayscale(coefs->at(3)), -toGrayscale(coefs->at(1)), toGrayscale(coefs->at(2)));
 	direction.normalize();
 
