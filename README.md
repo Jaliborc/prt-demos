@@ -1,7 +1,7 @@
 # PRT Demo
 Readme being written, give me a day
 
-## Controls
+### Controls
 * Up/Down Arrows - change environment
 * Left/Right Arrows - rotate hand
 * Q/A - increase/reduce diffuse
