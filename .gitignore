@@ -1,5 +1,3 @@
-.svn*
-*.svn-base
 .DS_Store
 
 *.mip
@@ -20,15 +18,6 @@
 *.sdf
 *.opensdf
 
-Models/hand/1000 poses/
-Models/hand/300 poses/
-Pbrt/scenes/
-
-ipch/
-Release/OsgViewer.pdb
-Osg/Release/
-Osg/Debug/
-Java/bin/
-
-Tasks
-archive/
+ipch/*
+Release/*
+Debug/*
