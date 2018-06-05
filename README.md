@@ -6,7 +6,7 @@ A set of C++ applications showcasing the use of Precomputed Radiance Transfer fo
 
 Supported models can be created using [prt generator](https://github.com/jaliborc/prt-generator) and tested in [prt analyser](https://github.com/jaliborc/prt-analyser). For already generated models and example media files, see [releases](https://github.com/Jaliborc/prt-demo/releases).
 
-[![Preview](http://jaliborc.com/images/research/prt-demo.gif)](https://goo.gl/bxt1rq)
+[![Preview](http://jaliborc.com/images/research/prt-demo.gif)](https://goo.gl/bxt1rq)  
 [Preview](https://goo.gl/bxt1rq)
 
 ### Controls
